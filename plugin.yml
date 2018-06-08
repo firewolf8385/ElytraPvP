@@ -1,0 +1,19 @@
+main: firewolf8385.elytrapvp.Main
+
+name: ElytraPVP
+version: 3.0
+
+description: A fun, new type of pvp
+
+author: [firewolf8385]
+
+softdepend: [PlaceholderAPI]
+
+commands:
+  elytrapvp:
+    usage: /<command>
+    description: Main ElytraPvP Command
+    aliases: [ep]
+  stats:
+    usage: /<command>
+    description: View Your Stats
