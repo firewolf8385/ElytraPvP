@@ -13,6 +13,8 @@ import net.md_5.bungee.api.ChatColor;
 
 public class Chemist {
 
+    public static ItemStack item;
+
     public static void giveKit(Player p) {
 
         ItemStack bow = new ItemStack(Material.BOW, 1);
@@ -52,6 +54,16 @@ public class Chemist {
             p.getInventory().setItem(17, arrow);
         }
 
+    }
+
+    public static boolean hasKit(Player p){
+        if(p.getInventory().contains(item)){
+            return true;
+        }
+
+        else{
+            return false;
+        }
     }
 
 }

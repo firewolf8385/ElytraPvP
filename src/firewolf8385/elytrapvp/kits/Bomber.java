@@ -14,6 +14,8 @@ import net.md_5.bungee.api.ChatColor;
 
 public class Bomber {
 
+    public static ItemStack item;
+
     public static void giveKit(Player p) {
 
         ItemStack bow = new ItemStack(Material.BOW, 1);
@@ -23,6 +25,7 @@ public class Bomber {
         bow2.addEnchant(Enchantment.ARROW_INFINITE, 1, true);
         bow2.addEnchant(Enchantment.ARROW_DAMAGE, 3, true);
         bow.setItemMeta(bow2);
+        item = bow;
 
         ItemStack fireworks = new ItemStack(Material.FIREWORK, 64);
 
@@ -55,5 +58,16 @@ public class Bomber {
         }
 
     }
+
+    public static boolean hasKit(Player p){
+        if(p.getInventory().contains(item)){
+            return true;
+        }
+
+        else{
+            return false;
+        }
+    }
+
 
 }

@@ -11,6 +11,9 @@ import org.bukkit.potion.PotionEffectType;
 import net.md_5.bungee.api.ChatColor;
 
 public class Healer {
+
+    public static ItemStack item;
+
     public static void giveKit(Player p) {
 
         ItemStack bow = new ItemStack(Material.BOW, 1);
@@ -49,4 +52,15 @@ public class Healer {
         }
 
     }
+
+    public static boolean hasKit(Player p){
+        if(p.getInventory().contains(item)){
+            return true;
+        }
+
+        else{
+            return false;
+        }
+    }
+
 }

@@ -10,6 +10,8 @@ import net.md_5.bungee.api.ChatColor;
 
 public class Sniper {
 
+    public static ItemStack item;
+
     public static void giveKit(Player p) {
 
         ItemStack bow = new ItemStack(Material.BOW, 1);
@@ -44,6 +46,16 @@ public class Sniper {
             p.setHealth(12);
         }
 
+    }
+
+    public static boolean hasKit(Player p){
+        if(p.getInventory().contains(item)){
+            return true;
+        }
+
+        else{
+            return false;
+        }
     }
 
 }
