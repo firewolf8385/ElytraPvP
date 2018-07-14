@@ -25,7 +25,7 @@ public class Enable implements CommandExecutor{
                 sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&6&lElytraPvP &8- &7ElytraPvP has been disabled"));
             }
             else {
-                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&6&lElytraPvP &8- &7Failed to enable ElytraPvP. Spawn has been set!"));
+                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&6&lElytraPvP &8- &7Failed to enable ElytraPvP. Spawn has not been set!"));
             }
         }
         else {

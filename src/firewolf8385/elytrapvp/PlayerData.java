@@ -35,6 +35,7 @@ public class PlayerData {
 
     public void createPlayerDefaults() {
         if(pData.length() <= 0) {
+            pDataConfig.set("Name", null);
             pDataConfig.set("Coins", 0);
             pDataConfig.set("Kit", 0);
 
@@ -48,26 +49,7 @@ public class PlayerData {
             pDataConfig.set("Stats.Logins", 0);
 
 
-            pDataConfig.createSection("Kit-Stats");
-            pDataConfig.set("Kit-Stats.Sniper.Kills", 0);
-            pDataConfig.set("Kit-Stats.Sniper.Deaths", 0);
-            pDataConfig.set("Kit-Stats.Knight.Kills", 0);
-            pDataConfig.set("Kit-Stats.Pyro.Kills", 0);
-            pDataConfig.set("Kit-Stats.Tank.Kills", 0);
-            pDataConfig.set("Kit-Stats.Chemist.Kills", 0);
-            pDataConfig.set("Kit-Stats.Stickman.Kills", 0);
-            pDataConfig.set("Kit-Stats.Bomber.Kills", 0);
-
             pDataConfig.createSection("Achievements");
-            pDataConfig.set("Achievements.Kills.1", false);
-            pDataConfig.set("Achievements.Kills.2", false);
-            pDataConfig.set("Achievements.Kills.3", false);
-            pDataConfig.set("Achievements.Kills.4", false);
-            pDataConfig.set("Achievements.Kills.5", false);
-            pDataConfig.set("Achievements.Kills.6", false);
-            pDataConfig.set("Achievements.Kills.7", false);
-            pDataConfig.set("Achievements.Deaths.1", false);
-            pDataConfig.set("Achievements.Deaths.2", false);
         }
     }
 

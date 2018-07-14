@@ -32,7 +32,7 @@ public class PlayerRespawn implements Listener{
             Location spawn = new Location(world, x, y, z, yaw, pitch);
             e.setRespawnLocation(spawn);
 
-
+            p.getInventory().clear();
             SpawnItems.giveItems(p);
 
             p.setMaxHealth(20);

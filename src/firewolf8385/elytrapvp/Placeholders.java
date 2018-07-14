@@ -55,6 +55,9 @@ public class Placeholders extends EZPlaceholderHook{
             else if(player.getKit() == 7) {
                 return "Bomber";
             }
+            else{
+                return "None";
+            }
         }
 
         if(identifier.equals("enabled")) {

@@ -64,8 +64,8 @@ public class KitsMenu {
             kitsMain.setItem(16, Tank);
             kitsMain.setItem(28, Chemist);
             kitsMain.setItem(30, Stickman);
-            // kitsMain.setItem(32, Bomber);
-            kitsMain.setItem(32, Healer);
+            kitsMain.setItem(32, Bomber);
+            kitsMain.setItem(34, Healer);
 
             mainGUI = kitsMain.getName();
 

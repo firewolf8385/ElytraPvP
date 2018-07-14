@@ -17,9 +17,9 @@ public class Stats implements CommandExecutor{
             PlayerData player = new PlayerData(p.getUniqueId());
 
             sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&8---------- &6&lStats &8----------"));
-            sender.sendMessage("");
             sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&eKills: &f" + player.getKills()));
             sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&eDeaths: &f" + player.getDeaths()));
+            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&eRatio: &f" + (player.getKills() / player.getDeaths())));
             sender.sendMessage("");
             sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&eCoins: &f" + player.getCoins()));
         }

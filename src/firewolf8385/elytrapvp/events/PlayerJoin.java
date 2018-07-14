@@ -1,6 +1,7 @@
 package firewolf8385.elytrapvp.events;
 
 import firewolf8385.elytrapvp.utils.SpawnItems;
+import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
@@ -51,6 +52,8 @@ public class PlayerJoin implements Listener{
             p.setHealth(20.0);
 
             p.removePotionEffect(PotionEffectType.REGENERATION);
+
+            p.setGameMode(GameMode.ADVENTURE);
         }
 
     }

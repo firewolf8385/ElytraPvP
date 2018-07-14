@@ -20,7 +20,7 @@ public class SpawnItems {
         kits2.setDisplayName(ChatColor.GOLD + "Kit Selector");
         kits.setItemMeta(kits2);
 
-        ItemStack upgrades = new ItemStack(Material.ARROW);
+        ItemStack upgrades = new ItemStack(Material.EMERALD);
         ItemMeta upgrades2 = upgrades.getItemMeta();
         upgrades2.setDisplayName(ChatColor.GOLD + "Shop");
         upgrades.setItemMeta(upgrades2);

@@ -39,8 +39,8 @@ public class PlayerInteract implements Listener{
                     KitsMenu.openKits(player);
                 }
 
-                if(player.getInventory().getItemInMainHand().getType() == Material.ARROW) {
-                    player.sendMessage(ChatColor.translateAlternateColorCodes('&', settings.getConfig().getString("Messages.Prefix") + "&cCosmetics are coming soon."));
+                if(player.getInventory().getItemInMainHand().getType() == Material.EMERALD) {
+                    player.sendMessage(ChatColor.translateAlternateColorCodes('&', settings.getConfig().getString("Messages.Prefix") + "&cShop is coming soon."));
                 }
 
                 if(player.getInventory().getItemInMainHand().getType() == Material.BOOK) {
