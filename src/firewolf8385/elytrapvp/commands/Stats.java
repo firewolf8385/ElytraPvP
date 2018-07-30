@@ -15,13 +15,14 @@ public class Stats implements CommandExecutor{
         if(args.length == 0) {
             Player p = (Player) sender;
             PlayerData player = new PlayerData(p.getUniqueId());
+            Double kdr = Double.valueOf(player.getKills()) / Double.valueOf(player.getDeaths());
 
-            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&8---------- &6&lStats &8----------"));
+            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&6&l]&8&m----------------&6&lStats&8&m----------------&6&l["));
             sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&eKills: &f" + player.getKills()));
             sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&eDeaths: &f" + player.getDeaths()));
-            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&eRatio: &f" + (player.getKills() / player.getDeaths())));
-            sender.sendMessage("");
+            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&eRatio: &f" + kdr));
             sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&eCoins: &f" + player.getCoins()));
+            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&6&l]&8&m-------------------------------------&6&l["));
         }
 
         return true;
