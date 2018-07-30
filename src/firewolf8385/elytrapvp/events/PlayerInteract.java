@@ -3,6 +3,7 @@ package firewolf8385.elytrapvp.events;
 import firewolf8385.elytrapvp.SettingsManager;
 import firewolf8385.elytrapvp.inventories.AchievementsMenu;
 import firewolf8385.elytrapvp.inventories.KitsMenu;
+import firewolf8385.elytrapvp.kits.Bomber;
 import org.bukkit.Color;
 import org.bukkit.FireworkEffect;
 import org.bukkit.Material;
@@ -52,7 +53,7 @@ public class PlayerInteract implements Listener{
                     player.getInventory().setItemInOffHand(new ItemStack(Material.FIREWORK, 64));
                 }
 
-                if(player.getInventory().getItemInMainHand().getType() == Material.FIREWORK) {
+                if(player.getInventory().getItemInMainHand().getType() == Material.FIREWORK && Bomber.hasKit(player)) {
                     ItemStack Firework2 = new ItemStack(Material.FIREWORK, 64);
                     FireworkMeta Firework2Meta = (FireworkMeta) Firework2.getItemMeta();
                     Firework2Meta.setDisplayName(ChatColor.GOLD + "Explosive Fireworks");
