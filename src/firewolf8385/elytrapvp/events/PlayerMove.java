@@ -76,7 +76,7 @@ public class PlayerMove implements Listener {
 
                 Block block = p.getLocation().getBlock().getRelative(BlockFace.DOWN);
                 if (settings.getConfig().getBoolean("DieOnWater")) {
-                    if (block.getType() == Material.STATIONARY_WATER || block.getType() == Material.WATER) {
+                    if (block.getType() == Material.STATIONARY_WATER) {
                         p.setHealth(0);
                         String dm1 = settings.getConfig().getString("DeathMessages.Water");
                         String dm2 = dm1.replace("%player%", p.getName());
