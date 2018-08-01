@@ -83,48 +83,33 @@ public class InventoryClick implements Listener{
                 player.savePlayerConfig();
                 p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&e&lKit &8- &aYou Have Selected Kit Healer"));
             }
-            else {
+            else if(clicked.getType() == Material.ENDER_PEARL) {
                 e.setCancelled(true);
+                p.closeInventory();
+                player.setKit(9);
+                player.savePlayerConfig();
+                p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&e&lKit &8- &aYou Have Selected Kit Teleporter"));
             }
-        }
-
-        if(inventory.getName().equals(AchievementsMenu.mainGUI)) {
-            if(clicked.getType() == Material.BOW) {
-               // AchievementsMenu.openKills(p);
+            else if(clicked.getType() == Material.SPECTRAL_ARROW) {
                 e.setCancelled(true);
+                p.closeInventory();
+                player.setKit(10);
+                player.savePlayerConfig();
+                p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&e&lKit &8- &aYou Have Selected Kit Spectral"));
             }
-            else if(clicked.getType() == Material.SKELETON_SKULL) {
-               // AchievementsMenu.openDeaths(p);
+            else if(clicked.getType() == Material.ENCHANTED_BOOK) {
                 e.setCancelled(true);
-            }
-            else if(clicked.getType() == Material.FLINT_AND_STEEL) {
-                e.setCancelled(true);
-            }
-            else if(clicked.getType() == Material.IRON_CHESTPLATE) {
-                e.setCancelled(true);
-            }
-            else if(clicked.getType() == Material.POTION) {
-                e.setCancelled(true);
-            }
-            else if(clicked.getType() == Material.STICK) {
-                e.setCancelled(true);
-            }
-            else if(clicked.getType() == Material.TNT) {
-                e.setCancelled(true);
+                p.closeInventory();
+                player.setKit(11);
+                player.savePlayerConfig();
+                p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&e&lKit &8- &aYou Have Selected Kit Puncher"));
             }
             else {
                 e.setCancelled(true);
             }
         }
 
-        if(inventory.getName().equals(CosmeticsMenu.mainGUI)) {
 
-        }
-
-       // if(inventory.getName().equals(AchievementsMenu.killsGUI)) {
-         //   e.setCancelled(true);
-       // }
-
-    }
+}
 
 }

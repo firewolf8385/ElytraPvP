@@ -57,6 +57,14 @@ public class PlayerMove implements Listener {
                     case 8:
                         if(!Sniper.hasKit(p)){ Healer.giveKit(p); }
                         break;
+                    case 9:
+                        if(!Teleporter.hasKit(p)){ Teleporter.giveKit(p); }
+                        break;
+                    case 10:
+                        if(!Spectral.hasKit(p)){ Spectral.giveKit(p);}
+                        break;
+                    case 11:
+                        if(!Puncher.hasKit(p)){ Puncher.giveKit(p); }
                     default:
                         Double x = settings.getConfig().getDouble("Spawn.X");
                         Double y = settings.getConfig().getDouble("Spawn.Y");

@@ -58,6 +58,21 @@ public class KitsMenu {
             HealerMeta.setDisplayName(ChatColor.GOLD + "Healer");
             Healer.setItemMeta(HealerMeta);
 
+            ItemStack Teleporter = new ItemStack(Material.ENDER_PEARL);
+            ItemMeta TeleporterMeta = Teleporter.getItemMeta();
+            TeleporterMeta.setDisplayName(ChatColor.GOLD + "Teleporter");
+            Teleporter.setItemMeta(TeleporterMeta);
+
+            ItemStack Spectral = new ItemStack(Material.SPECTRAL_ARROW);
+            ItemMeta SpectralMeta = Spectral.getItemMeta();
+            SpectralMeta.setDisplayName(ChatColor.GOLD + "Spectral");
+            Spectral.setItemMeta(SpectralMeta);
+
+            ItemStack Puncher = new ItemStack(Material.ENCHANTED_BOOK);
+            ItemMeta PuncherMeta = Puncher.getItemMeta();
+            HealerMeta.setDisplayName(ChatColor.GOLD + "Puncher");
+            Puncher.setItemMeta(PuncherMeta);
+
             kitsMain.setItem(10, Sniper);
             kitsMain.setItem(12, Knight);
             kitsMain.setItem(14, Pyro);
@@ -66,6 +81,9 @@ public class KitsMenu {
             kitsMain.setItem(30, Stickman);
             kitsMain.setItem(32, Bomber);
             kitsMain.setItem(34, Healer);
+            kitsMain.setItem(20, Teleporter);
+            kitsMain.setItem(22, Spectral);
+            kitsMain.setItem(24, Puncher);
 
             mainGUI = kitsMain.getName();
 
