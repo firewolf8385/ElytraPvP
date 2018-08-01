@@ -28,7 +28,7 @@ public class Spectral {
         elytrameta.setUnbreakable(true);
         elytra.setItemMeta(elytrameta);
 
-        ItemStack arrow = new ItemStack(Material.SPECTRAL_ARROW, 1);
+        ItemStack arrow = new ItemStack(Material.SPECTRAL_ARROW, 64);
 
         if (!(p.getInventory().contains(bow))) {
             p.getInventory().clear();
