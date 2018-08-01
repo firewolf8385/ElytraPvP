@@ -2,6 +2,7 @@ package firewolf8385.elytrapvp.events;
 
 import firewolf8385.elytrapvp.PlayerData;
 import firewolf8385.elytrapvp.inventories.AchievementsMenu;
+import firewolf8385.elytrapvp.inventories.CosmeticsMenu;
 import firewolf8385.elytrapvp.inventories.KitsMenu;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -92,7 +93,7 @@ public class InventoryClick implements Listener{
                // AchievementsMenu.openKills(p);
                 e.setCancelled(true);
             }
-            else if(clicked.getType() == Material.SKULL_ITEM) {
+            else if(clicked.getType() == Material.SKELETON_SKULL) {
                // AchievementsMenu.openDeaths(p);
                 e.setCancelled(true);
             }
@@ -114,6 +115,10 @@ public class InventoryClick implements Listener{
             else {
                 e.setCancelled(true);
             }
+        }
+
+        if(inventory.getName().equals(CosmeticsMenu.mainGUI)) {
+
         }
 
        // if(inventory.getName().equals(AchievementsMenu.killsGUI)) {

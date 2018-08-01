@@ -22,7 +22,7 @@ public class Tank {
         bow2.addEnchant(Enchantment.ARROW_DAMAGE, 1, true);
         bow.setItemMeta(bow2);
 
-        ItemStack fireworks = new ItemStack(Material.FIREWORK, 64);
+        ItemStack fireworks = new ItemStack(Material.FIREWORK_ROCKET, 64);
 
         ItemStack elytra = new ItemStack(Material.ELYTRA, 1);
         ItemMeta elytrameta = elytra.getItemMeta();

@@ -27,7 +27,7 @@ public class Bomber {
         bow.setItemMeta(bow2);
         item = bow;
 
-        ItemStack fireworks = new ItemStack(Material.FIREWORK, 64);
+        ItemStack fireworks = new ItemStack(Material.FIREWORK_ROCKET, 64);
 
         ItemStack elytra = new ItemStack(Material.ELYTRA, 1);
         ItemMeta elytrameta = elytra.getItemMeta();
@@ -36,7 +36,7 @@ public class Bomber {
 
         ItemStack arrow = new ItemStack(Material.ARROW, 1);
 
-        ItemStack Firework2 = new ItemStack(Material.FIREWORK, 64);
+        ItemStack Firework2 = new ItemStack(Material.FIREWORK_ROCKET, 64);
         FireworkMeta Firework2Meta = (FireworkMeta) Firework2.getItemMeta();
         Firework2Meta.setDisplayName(ChatColor.GOLD + "Explosive Fireworks");
         Firework2Meta

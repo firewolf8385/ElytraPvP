@@ -28,6 +28,7 @@ public class PlayerMove implements Listener {
             if(p.getLocation().getY() > settings.getConfig().getInt("StartLevel")){
                 if(p.getInventory().contains(Material.BOW)){
                     p.setHealth(0.0);
+                    Bukkit.broadcastMessage(ChatColor.translateAlternateColorCodes('&', "&6&lDeath &8- &e" + p.getName() + " &ftried to escape."));
                 }
             }
             else{
@@ -76,7 +77,7 @@ public class PlayerMove implements Listener {
 
                 Block block = p.getLocation().getBlock().getRelative(BlockFace.DOWN);
                 if (settings.getConfig().getBoolean("DieOnWater")) {
-                    if (block.getType() == Material.STATIONARY_WATER) {
+                    if (block.getType() == Material.WATER) {
                         p.setHealth(0);
                         String dm1 = settings.getConfig().getString("DeathMessages.Water");
                         String dm2 = dm1.replace("%player%", p.getName());

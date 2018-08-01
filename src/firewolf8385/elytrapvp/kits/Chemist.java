@@ -31,7 +31,7 @@ public class Chemist {
         potion1meta.addCustomEffect(new PotionEffect(PotionEffectType.HARM, 1, 0), true);
         potion1.setItemMeta(potion1meta);
 
-        ItemStack fireworks = new ItemStack(Material.FIREWORK, 64);
+        ItemStack fireworks = new ItemStack(Material.FIREWORK_ROCKET, 64);
 
         ItemStack elytra = new ItemStack(Material.ELYTRA, 1);
         ItemMeta elytrameta = elytra.getItemMeta();

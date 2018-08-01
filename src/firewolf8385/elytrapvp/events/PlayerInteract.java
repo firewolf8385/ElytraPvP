@@ -2,6 +2,7 @@ package firewolf8385.elytrapvp.events;
 
 import firewolf8385.elytrapvp.SettingsManager;
 import firewolf8385.elytrapvp.inventories.AchievementsMenu;
+import firewolf8385.elytrapvp.inventories.CosmeticsMenu;
 import firewolf8385.elytrapvp.inventories.KitsMenu;
 import firewolf8385.elytrapvp.kits.Bomber;
 import org.bukkit.Color;
@@ -41,7 +42,7 @@ public class PlayerInteract implements Listener{
                 }
 
                 if(player.getInventory().getItemInMainHand().getType() == Material.EMERALD) {
-                    player.sendMessage(ChatColor.translateAlternateColorCodes('&', settings.getConfig().getString("Messages.Prefix") + "&cShop is coming soon."));
+                    CosmeticsMenu.openCosmetics(player);
                 }
 
                 if(player.getInventory().getItemInMainHand().getType() == Material.BOOK) {
@@ -49,12 +50,12 @@ public class PlayerInteract implements Listener{
                     AchievementsMenu.openAcheievements(player);
                 }
 
-                if(player.getInventory().getItemInOffHand().getType() == Material.FIREWORK) {
-                    player.getInventory().setItemInOffHand(new ItemStack(Material.FIREWORK, 64));
+                if(player.getInventory().getItemInOffHand().getType() == Material.FIREWORK_ROCKET) {
+                    player.getInventory().setItemInOffHand(new ItemStack(Material.FIREWORK_ROCKET, 64));
                 }
 
-                if(player.getInventory().getItemInMainHand().getType() == Material.FIREWORK && Bomber.hasKit(player)) {
-                    ItemStack Firework2 = new ItemStack(Material.FIREWORK, 64);
+                if(player.getInventory().getItemInMainHand().getType() == Material.FIREWORK_ROCKET && Bomber.hasKit(player)) {
+                    ItemStack Firework2 = new ItemStack(Material.FIREWORK_ROCKET, 64);
                     FireworkMeta Firework2Meta = (FireworkMeta) Firework2.getItemMeta();
                     Firework2Meta.setDisplayName(ChatColor.GOLD + "Explosive Fireworks");
                     Firework2Meta.addEffects(FireworkEffect.builder().withColor(Color.RED).with(Type.BURST).build());
