@@ -65,6 +65,7 @@ public class PlayerMove implements Listener {
                         break;
                     case 11:
                         if(!Puncher.hasKit(p)){ Puncher.giveKit(p); }
+                        break;
                     default:
                         Double x = settings.getConfig().getDouble("Spawn.X");
                         Double y = settings.getConfig().getDouble("Spawn.Y");

@@ -70,7 +70,7 @@ public class KitsMenu {
 
             ItemStack Puncher = new ItemStack(Material.ENCHANTED_BOOK);
             ItemMeta PuncherMeta = Puncher.getItemMeta();
-            HealerMeta.setDisplayName(ChatColor.GOLD + "Puncher");
+            PuncherMeta.setDisplayName(ChatColor.GOLD + "Puncher");
             Puncher.setItemMeta(PuncherMeta);
 
             kitsMain.setItem(10, Sniper);

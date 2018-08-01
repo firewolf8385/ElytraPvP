@@ -97,7 +97,7 @@ public class InventoryClick implements Listener{
                 player.savePlayerConfig();
                 p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&e&lKit &8- &aYou Have Selected Kit Spectral"));
             }
-            else if(clicked.getType() == Material.ENCHANTED_BOOK) {
+            else if(clicked.getType().equals(Material.ENCHANTED_BOOK)) {
                 e.setCancelled(true);
                 p.closeInventory();
                 player.setKit(11);
