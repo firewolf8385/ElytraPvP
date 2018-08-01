@@ -8,6 +8,8 @@ author: [firewolf8385]
 
 softdepend: [PlaceholderAPI]
 
+api-version: 1.13
+
 commands:
   elytrapvp:
     usage: /<command>
