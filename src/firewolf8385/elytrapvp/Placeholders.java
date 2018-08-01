@@ -34,30 +34,34 @@ public class Placeholders extends EZPlaceholderHook{
         }
 
         if(identifier.equals("kit")) {
-            if(player.getKit() == 1) {
-                return "Sniper";
+
+            switch(player.getKit()){
+                case 1:
+                    return "Sniper";
+                case 2:
+                    return "Knight";
+                case 3:
+                    return "Pyro";
+                case 4:
+                    return "Tank";
+                case 5:
+                    return "Chemist";
+                case 6:
+                    return "Stickman";
+                case 7:
+                    return "Bomber";
+                case 8:
+                    return "Healer";
+                case 9:
+                    return "Teleporter";
+                case 10:
+                    return "Spectral";
+                case 11:
+                    return "Puncher";
+                default:
+                    return "None";
             }
-            else if(player.getKit() == 2) {
-                return "Knight";
-            }
-            else if(player.getKit() == 3) {
-                return "Pyro";
-            }
-            else if(player.getKit() == 4) {
-                return "Tank";
-            }
-            else if(player.getKit() == 5) {
-                return "Chemist";
-            }
-            else if(player.getKit() == 6) {
-                return "Stickman";
-            }
-            else if(player.getKit() == 7) {
-                return "Bomber";
-            }
-            else{
-                return "None";
-            }
+
         }
 
         if(identifier.equals("enabled")) {
