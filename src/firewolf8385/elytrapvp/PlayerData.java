@@ -38,6 +38,7 @@ public class PlayerData {
             pDataConfig.set("Name", null);
             pDataConfig.set("Coins", 0);
             pDataConfig.set("Kit", 0);
+            pDataConfig.set("Cosmetic", 0);
 
             pDataConfig.createSection("Stats");
             pDataConfig.set("Stats.Kills", 0);
@@ -48,6 +49,8 @@ public class PlayerData {
             // is working properly.
             pDataConfig.set("Stats.Logins", 0);
 
+            pDataConfig.createSection("Cosmetics");
+            pDataConfig.set("Cosmetics.1", false);
 
             pDataConfig.createSection("Achievements");
         }
@@ -94,6 +97,9 @@ public class PlayerData {
 
     public boolean getAchievement(String type, String number) {
         return pDataConfig.getBoolean("Achievements." + type + "." + number);
+    }
+    public boolean hasCosmetic(String number){
+        return pDataConfig.getBoolean("Cosmetics." + number);
     }
 
 // Adding Information To The Files
@@ -168,6 +174,13 @@ public class PlayerData {
 
     public void setAchievements(String type, String number, Boolean state) {
         pDataConfig.set("Achievements." + type + "." + number, state);
+    }
+    public void setHasCosmetic(String number, Boolean state){
+        pDataConfig.set("Cosmetics." + number, state);
+    }
+
+    public void setCosmetic(Integer number){
+        pDataConfig.set("Cosmetic", number);
     }
 
 }
