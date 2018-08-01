@@ -21,7 +21,7 @@ public class ProjectileLaunch implements Listener {
 
             if(player.getKit() == 10){
                 ItemStack arrow = new ItemStack(Material.SPECTRAL_ARROW, 64);
-                p.getInventory().setItem(1, arrow);
+                p.getInventory().setItem(17, arrow);
             }
 
         }
