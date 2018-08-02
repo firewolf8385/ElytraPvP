@@ -1,0 +1,57 @@
+#=============================================
+#=============                  ==============
+#============= ElytraPvP Config ==============
+#=============                  ==============
+#=============================================
+
+# Set to false when building.
+Enabled: false
+
+Spawn:
+  X: 0.0
+  Y: 0.0
+  Z: 0.0
+  Yaw: 0.0
+  Pitch: 0.0
+
+# The level in which the arena begins
+StartLevel: 0
+
+# When set to true, players don't lose hunger.
+Disable-Hunger: true
+
+# When set to true, players can drop items
+AllowItemDrop: false
+
+# The amount of coins a player gets per kill
+CoinsPerKill: 5
+
+# These are the blocks that players die when they touch.
+# Uses spigot material ids: https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html
+DeathBlocks:
+- GRASS
+- LEAVES
+
+# Kills the player when they touch water
+DieOnWater: true
+
+# Change Death Messages Here
+DeathMessages:
+  Prefix: "&6&lDeath &8- "
+  Water: "&e%player% &fdrowned."
+  Block: "&e%player% &fdied."
+  Escape: "&e%player% &ftried to escape."
+  Player: "&e%player% was rekt by &6%killer%&f."
+
+# These are the messages seen throughout the plugin
+Messages:
+  Prefix: "&e&lElytraPvP &8- "
+  NoPermission: "&cYou do not have access to that command!"
+  PluginEnabled: "&aPlugin has been enabled!"
+  CouldNotEnable: "&cCould not enable plugin! Check to make sure everything is set first."
+  PluginDisabled: "&cPlugin has been disabled!"
+  SpawnSet: "&aSpawn has been set!"
+  StartLevelSet: "&aStart Level has been set!"
+  Killstreak: "&6&lKillstreak &8- &6%player% &fis on a killstreak of &6%killstreak%&f!"
+  KitSelection: "&6&lKit &8- &fYou have selected &eKit %kit%&f."
+  CosmeticSelection: "&6&lCosmetics &8- &fYou have selected &e%cosmetic%&f."
