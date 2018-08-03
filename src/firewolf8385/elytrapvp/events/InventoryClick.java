@@ -15,6 +15,8 @@ import org.bukkit.inventory.ItemStack;
 
 import net.md_5.bungee.api.ChatColor;
 
+import static org.bukkit.Bukkit.getServer;
+
 public class InventoryClick implements Listener{
 
     @EventHandler
@@ -107,6 +109,164 @@ public class InventoryClick implements Listener{
             else {
                 e.setCancelled(true);
             }
+        }
+
+        if(inventory.getName().equals(CosmeticsMenu.mainGUI)){
+            if(clicked.getType().equals(Material.DRAGON_BREATH)){
+                if(clicked.getItemMeta().getLore().contains(ChatColor.GRAY + "Unlocked")){
+                    p.closeInventory();
+                    p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&6&lCosmetics &8- &7You Have Selected &eArrow Trail - Dragon's Breath"));
+                    getServer().dispatchCommand(getServer().getConsoleSender(), "atrail " + p.getName() + " dragon_breath");
+                }
+                else{
+                    if(player.getCoins() >= 500){
+                        e.setCancelled(true);
+                        player.removeCoins(500);
+                        player.setHasCosmetic("1", true);
+                        player.savePlayerConfig();
+                        CosmeticsMenu.openCosmetics(p);
+                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&6&lCosmetics &8- &7You Have Successfully Purchased &eArrow Trail - Dragon's Breath"));
+                    }
+                    else{
+                        e.setCancelled(true);
+                        p.closeInventory();
+                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&6&lCosmetics &8- &cYou do not have enough coins for that"));
+                    }
+                }
+            }
+            if(clicked.getType().equals(Material.INK_SAC)){
+                if(clicked.getItemMeta().getLore().contains(ChatColor.GRAY + "Unlocked")){
+                    p.closeInventory();
+                    p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&6&lCosmetics &8- &7You Have Selected &eArrow Trail - Squid Ink"));
+                    getServer().dispatchCommand(getServer().getConsoleSender(), "atrail " + p.getName() + " squid_ink");
+                }
+                else{
+                    if(player.getCoins() >= 500){
+                        e.setCancelled(true);
+                        player.removeCoins(500);
+                        player.setHasCosmetic("2", true);
+                        player.savePlayerConfig();
+                        CosmeticsMenu.openCosmetics(p);
+                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&6&lCosmetics &8- &7You Have Successfully Purchased &eArrow Trail - Squid Ink"));
+                    }
+                    else{
+                        e.setCancelled(true);
+                        p.closeInventory();
+                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&6&lCosmetics &8- &cYou do not have enough coins for that"));
+                    }
+                }
+            }
+            if(clicked.getType().equals(Material.NAUTILUS_SHELL)){
+                if(clicked.getItemMeta().getLore().contains(ChatColor.GRAY + "Unlocked")){
+                    p.closeInventory();
+                    p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&6&lCosmetics &8- &7You Have Selected &eArrow Trail - Nautilus"));
+                    getServer().dispatchCommand(getServer().getConsoleSender(), "atrail " + p.getName() + " nautilus");
+                }
+                else{
+                    if(player.getCoins() >= 300){
+                        e.setCancelled(true);
+                        player.removeCoins(300);
+                        player.setHasCosmetic("3", true);
+                        player.savePlayerConfig();
+                        CosmeticsMenu.openCosmetics(p);
+                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&6&lCosmetics &8- &7You Have Successfully Purchased &eArrow Trail - Nautilus"));
+                    }
+                    else{
+                        e.setCancelled(true);
+                        p.closeInventory();
+                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&6&lCosmetics &8- &cYou do not have enough coins for that"));
+                    }
+                }
+            }
+            if(clicked.getType().equals(Material.TOTEM_OF_UNDYING)){
+                if(clicked.getItemMeta().getLore().contains(ChatColor.GRAY + "Unlocked")){
+                    p.closeInventory();
+                    p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&6&lCosmetics &8- &7You Have aSelected &eArrow Trail - Totem"));
+                    getServer().dispatchCommand(getServer().getConsoleSender(), "atrail " + p.getName() + " totem");
+                }
+                else{
+                    if(player.getCoins() >= 300){
+                        e.setCancelled(true);
+                        player.removeCoins(300);
+                        player.setHasCosmetic("4", true);
+                        player.savePlayerConfig();
+                        CosmeticsMenu.openCosmetics(p);
+                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&6&lCosmetics &8- &7You Have Successfully Purchased &eArrow Trail - Totem"));
+                    }
+                    else{
+                        e.setCancelled(true);
+                        p.closeInventory();
+                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&6&lCosmetics &8- &cYou do not have enough coins for that"));
+                    }
+                }
+            }
+            if(clicked.getType().equals(Material.APPLE)){
+                if(clicked.getItemMeta().getLore().contains(ChatColor.GRAY + "Unlocked")){
+                    p.closeInventory();
+                    p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&6&lCosmetics &8- &7You Have aSelected &eArrow Trail - Heart"));
+                    getServer().dispatchCommand(getServer().getConsoleSender(), "atrail " + p.getName() + " heart");
+                }
+                else{
+                    if(player.getCoins() >= 200){
+                        e.setCancelled(true);
+                        player.removeCoins(200);
+                        player.setHasCosmetic("5", true);
+                        player.savePlayerConfig();
+                        CosmeticsMenu.openCosmetics(p);
+                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&6&lCosmetics &8- &7You Have Successfully Purchased &eArrow Trail - Heart"));
+                    }
+                    else{
+                        e.setCancelled(true);
+                        p.closeInventory();
+                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&6&lCosmetics &8- &cYou do not have enough coins for that"));
+                    }
+                }
+            }
+            if(clicked.getType().equals(Material.FIRE_CHARGE)){
+                if(clicked.getItemMeta().getLore().contains(ChatColor.GRAY + "Unlocked")){
+                    p.closeInventory();
+                    p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&6&lCosmetics &8- &7You Have aSelected &eArrow Trail - Flame"));
+                    getServer().dispatchCommand(getServer().getConsoleSender(), "atrail " + p.getName() + " flame");
+                }
+                else{
+                    if(player.getCoins() >= 200){
+                        e.setCancelled(true);
+                        player.removeCoins(200);
+                        player.setHasCosmetic("6", true);
+                        player.savePlayerConfig();
+                        CosmeticsMenu.openCosmetics(p);
+                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&6&lCosmetics &8- &7You Have Successfully Purchased &eArrow Trail - Flame"));
+                    }
+                    else{
+                        e.setCancelled(true);
+                        p.closeInventory();
+                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&6&lCosmetics &8- &cYou do not have enough coins for that"));
+                    }
+                }
+            }
+            if(clicked.getType().equals(Material.EMERALD)){
+                if(clicked.getItemMeta().getLore().contains(ChatColor.GRAY + "Unlocked")){
+                    p.closeInventory();
+                    p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&6&lCosmetics &8- &7You Have aSelected &eArrow Trail - Happy Villager"));
+                    getServer().dispatchCommand(getServer().getConsoleSender(), "atrail " + p.getName() + " villager_happy");
+                }
+                else{
+                    if(player.getCoins() >= 200){
+                        e.setCancelled(true);
+                        player.removeCoins(200);
+                        player.setHasCosmetic("7", true);
+                        player.savePlayerConfig();
+                        CosmeticsMenu.openCosmetics(p);
+                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&6&lCosmetics &8- &7You Have Successfully Purchased &eArrow Trail - Happy Villager"));
+                    }
+                    else{
+                        e.setCancelled(true);
+                        p.closeInventory();
+                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&6&lCosmetics &8- &cYou do not have enough coins for that"));
+                    }
+                }
+            }
+
         }
 
 
