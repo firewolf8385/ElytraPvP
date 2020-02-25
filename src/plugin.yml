@@ -1,0 +1,8 @@
+main: firewolf8385.elytrapvp.ElytraPvP
+name: ElytraPVP
+version: 7.0
+description: A fun, new type of pvp
+author: firewolf8385
+softdepend: [PlaceholderAPI]
+api-version: 1.15
+load: POSTWORLD
