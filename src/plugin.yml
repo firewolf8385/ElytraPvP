@@ -8,6 +8,10 @@ api-version: 1.15
 load: POSTWORLD
 
 commands:
+  elytrapvp:
+    usage: /<command>
+    description: Main plugin command.
+    aliases: [ep, epvp, elytra]
   stats:
     usage: /<command>
     description: View your stats.
