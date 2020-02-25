@@ -2,6 +2,7 @@ package firewolf8385.elytrapvp;
 
 import firewolf8385.elytrapvp.commands.EP;
 import firewolf8385.elytrapvp.commands.Stats;
+import firewolf8385.elytrapvp.kits.Sniper;
 import firewolf8385.elytrapvp.listeners.*;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -45,6 +46,7 @@ public class ElytraPvP extends JavaPlugin
         // Enable different aspects of the plugin.
         registerCommands();
         registerEvents();
+        registerKits();
     }
 
     /**
@@ -59,7 +61,7 @@ public class ElytraPvP extends JavaPlugin
     /**
      * Register commands used by the plugin.
      */
-    public void registerCommands()
+    private void registerCommands()
     {
         getCommand("elytrapvp").setExecutor(new EP());
         getCommand("stats").setExecutor(new Stats());
@@ -68,7 +70,7 @@ public class ElytraPvP extends JavaPlugin
     /**
      * Register events used by the plugin.
      */
-    public void registerEvents()
+    private void registerEvents()
     {
         getServer().getPluginManager().registerEvents(new PlayerJoin(), this);
         getServer().getPluginManager().registerEvents(new PlayerMove(), this);
@@ -79,6 +81,14 @@ public class ElytraPvP extends JavaPlugin
         getServer().getPluginManager().registerEvents(new FoodLevelChange(), this);
         getServer().getPluginManager().registerEvents(new PlayerDropItem(), this);
         getServer().getPluginManager().registerEvents(new PlayerQuit(), this);
+    }
+
+    /**
+     * Register pvp kits.
+     */
+    private void registerKits()
+    {
+        new Sniper();
     }
 
 }
