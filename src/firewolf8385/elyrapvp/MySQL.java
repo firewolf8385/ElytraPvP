@@ -1,9 +1,6 @@
 package firewolf8385.elytrapvp;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class MySQL
 {
@@ -15,6 +12,44 @@ public class MySQL
     private static String username = settings.getConfig().getString("MySQL.username");
     private static String password = settings.getConfig().getString("MySQL.password");
     private static int port = settings.getConfig().getInt("MySQL.port");
+
+    /**
+     * Create tables if they don't exist.
+     */
+    public static void createTables()
+    {
+        // Exit if tables exists.
+        if(tableExists("ep_users"))
+        {
+            return;
+        }
+
+        try
+        {
+            PreparedStatement statement = connection.prepareStatement("CREATE TABLE `elytrapvp`.`ep_users` ("+
+                    "  `uuid` VARCHAR(36) NULL,"+
+                    "  `coins` INT NULL DEFAULT 0,"+
+                    "  `bounty` INT NULL DEFAULT 0,"+
+                    "  `kills` INT NULL DEFAULT 0,"+
+                    "  `deaths` INT NULL DEFAULT 0,"+
+                    "  `killstreak` INT NULL DEFAULT 0,"+
+                    "  `achievements` VARCHAR(45) NULL,"+
+                    "  `selectedKit` INT NULL DEFAULT 0,"+
+                    "  `unlockedKits` VARCHAR(45) NULL,"+
+                    "  `selectedHat` INT NULL DEFAULT 0,"+
+                    "  `unlockedHats` VARCHAR(45) NULL,"+
+                    "  `selectedKillMessage` INT NULL DEFAULT 0,"+
+                    "  `unlockedKillMessages` VARCHAR(45) NULL,"+
+                    "  `selectedTag` INT NULL DEFAULT 0,"+
+                    "  `unlockedTags` VARCHAR(45) NULL);");
+
+            statement.executeUpdate();
+        }
+        catch(SQLException e)
+        {
+            e.printStackTrace();
+        }
+    }
 
     /**
      * Make sure the database is connected.
@@ -76,5 +111,30 @@ public class MySQL
             e.printStackTrace();
         }
 
+    }
+
+    /**
+     * Check if a table exists.
+     * @param table Table to check.
+     * @return Whether it exists.
+     */
+    private static boolean tableExists(String table)
+    {
+        try
+        {
+            DatabaseMetaData dbm = connection.getMetaData();
+            ResultSet tables = dbm.getTables(null, null, table, null);
+
+            if(tables.next())
+            {
+                return true;
+            }
+        }
+        catch(SQLException e)
+        {
+            e.printStackTrace();
+        }
+
+        return false;
     }
 }
