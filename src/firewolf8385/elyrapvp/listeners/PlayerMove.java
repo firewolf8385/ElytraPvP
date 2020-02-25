@@ -32,22 +32,28 @@ public class PlayerMove implements Listener
         }
 
         // Exit if not in lobby or in game.
-        if(ep.getStatus().equals(Status.OTHER))
+        if(ep.getStatus() == Status.OTHER)
         {
             return;
         }
 
         // Change player's status to arena
-        if(p.getLocation().getY() <= settings.getStartLevel() && ep.getStatus().equals(Status.LOBBY))
+        if(p.getLocation().getY() < settings.getStartLevel() && ep.getStatus() == Status.LOBBY)
         {
             ep.setStatus(Status.ARENA);
         }
 
+        // Exit if in Lobby
+        if(ep.getStatus() == Status.LOBBY)
+        {
+            return;
+        }
+
         // Check if player tries to escape.
-        if(p.getLocation().getY() > settings.getStartLevel() && ep.getStatus().equals(Status.ARENA))
+        if(p.getLocation().getY() > settings.getStartLevel() && ep.getStatus() == Status.ARENA)
         {
             Bukkit.getPluginManager().callEvent(new PlayerEscapeEvent(p));
-            p.setHealth(0);
+            return;
         }
 
         // Check if player is touching the ground.
@@ -60,14 +66,12 @@ public class PlayerMove implements Listener
             if (block.getType() == Material.WATER || block2.getType() == Material.WATER)
             {
                 Bukkit.getPluginManager().callEvent(new PlayerDrownEvent(p));
-                p.setHealth(0);
             }
 
             // Calls PlayerTouchGroundEvent if player touches the ground.
             if (settings.getDeathBlocks().contains(block.getType().toString()))
             {
                 Bukkit.getPluginManager().callEvent(new PlayerTouchGroundEvent(p));
-                p.setHealth(0);
             }
         }
     }
