@@ -3,6 +3,9 @@ package firewolf8385.elytrapvp;
 import firewolf8385.elytrapvp.commands.EP;
 import firewolf8385.elytrapvp.commands.Stats;
 import firewolf8385.elytrapvp.listeners.PlayerJoin;
+import firewolf8385.elytrapvp.listeners.PlayerMove;
+import firewolf8385.elytrapvp.listeners.PlayerRespawn;
+import firewolf8385.elytrapvp.listeners.PlayerTouchGround;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -71,7 +74,8 @@ public class ElytraPvP extends JavaPlugin
     public void registerEvents()
     {
         getServer().getPluginManager().registerEvents(new PlayerJoin(), this);
-        getServer().getPluginManager().registerEvents(new PlayerJoin(), this);
+        getServer().getPluginManager().registerEvents(new PlayerMove(), this);
+        getServer().getPluginManager().registerEvents(new PlayerRespawn(), this);
     }
 
 }
