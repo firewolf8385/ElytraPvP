@@ -1,6 +1,8 @@
 package firewolf8385.elytrapvp.commands;
 
+import firewolf8385.elytrapvp.Settings;
 import firewolf8385.elytrapvp.commands.subcommands.*;
+import firewolf8385.elytrapvp.utils.ChatUtils;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -9,6 +11,7 @@ import java.util.Arrays;
 
 public class EP implements CommandExecutor
 {
+    private Settings settings = Settings.getInstance();
     private Disable disable;
     private Enable enable;
     private Help help;
@@ -38,6 +41,13 @@ public class EP implements CommandExecutor
             return true;
         }
 
+        // Exit if no permission.
+        if(!sender.hasPermission("ep.admin"))
+        {
+            ChatUtils.chat(sender, settings.getMessage("NoPermission"));
+            return true;
+        }
+
         switch(args[0])
         {
             case "disable":
@@ -53,6 +63,7 @@ public class EP implements CommandExecutor
                 break;
 
             case "setspawn":
+                setSpawn.onCommand(sender, cmd, label, Arrays.copyOfRange(args, 1, args.length));
                 break;
 
             case "setstartlevel":
