@@ -15,3 +15,6 @@ commands:
   stats:
     usage: /<command>
     description: View your stats.
+  kits:
+    usage: /<command>
+    description: View kits.
