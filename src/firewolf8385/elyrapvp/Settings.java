@@ -41,6 +41,16 @@ public class Settings
     }
 
     /**
+     * Get a message from the config.
+     * @param msg Message to get.
+     * @return The message.
+     */
+    public String getMessage(String msg)
+    {
+        return getConfig().getString("Messages." + msg);
+    }
+
+    /**
      * Get the spawn location.
      * @return
      */
