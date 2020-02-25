@@ -109,7 +109,7 @@ CoinsPerKill: 5
 
 # These are the messages seen throughout the plugin
 Messages:
-  Prefix: "&c&lElytraPvP &8- "
+  MustBePlayer: "&2&lError &8- &cYou must be a player to use that command."
   NoPermission: "&cYou do not have access to that command!"
   PluginEnabled: "&aPlugin has been enabled!"
   CouldNotEnable: "&cCould not enable plugin! Check to make sure everything is set first."
