@@ -1,5 +1,6 @@
 package firewolf8385.elytrapvp;
 
+import firewolf8385.elytrapvp.commands.EP;
 import firewolf8385.elytrapvp.commands.Stats;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -59,6 +60,7 @@ public class ElytraPvP extends JavaPlugin
      */
     public void registerCommands()
     {
+        getCommand("elytrapvp").setExecutor(new EP());
         getCommand("stats").setExecutor(new Stats());
     }
 
