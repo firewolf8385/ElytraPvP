@@ -12,7 +12,6 @@ import java.util.UUID;
 public class ElytraPlayer
 {
     private UUID uuid;
-    private Status status;
 
     /**
      * Create an ElytraPlayer
@@ -257,7 +256,7 @@ public class ElytraPlayer
      */
     public Status getStatus()
     {
-        return status;
+        return Status.list.get(uuid);
     }
 
     /**
@@ -402,7 +401,7 @@ public class ElytraPlayer
      */
     public void setStatus(Status status)
     {
-        this.status = status;
+        Status.list.put(uuid, status);
     }
 
     /**
