@@ -76,6 +76,9 @@ public class ElytraPvP extends JavaPlugin
         getServer().getPluginManager().registerEvents(new PlayerTouchGround(), this);
         getServer().getPluginManager().registerEvents(new PlayerDrown(), this);
         getServer().getPluginManager().registerEvents(new PlayerEscape(), this);
+        getServer().getPluginManager().registerEvents(new FoodLevelChange(), this);
+        getServer().getPluginManager().registerEvents(new PlayerDropItem(), this);
+        getServer().getPluginManager().registerEvents(new PlayerQuit(), this);
     }
 
 }
