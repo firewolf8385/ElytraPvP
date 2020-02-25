@@ -78,6 +78,30 @@ public class ElytraPlayer
     }
 
     /**
+     * Add a player to the database.
+     */
+    public void createPlayer()
+    {
+        // Exit if player exists.
+        if (hasJoined())
+        {
+            return;
+        }
+
+        try
+        {
+            PreparedStatement statement = MySQL.getConnection().prepareStatement("INSERT INTO ep_users (uuid) VALUES (?)");
+            statement.setString(1, uuid.toString());
+
+            statement.executeUpdate();
+        }
+        catch (SQLException ex)
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    /**
      * Get the player's current bounty.
      * @return Current bounty.
      */
@@ -234,6 +258,28 @@ public class ElytraPlayer
     public Status getStatus()
     {
         return status;
+    }
+
+    /**
+     * Check if player has joined before.
+     * @return Whether they have joined before.
+     */
+    public boolean hasJoined()
+    {
+        try
+        {
+            PreparedStatement statement = MySQL.getConnection().prepareStatement("SELECT * from ep_users WHERE uuid = ?");
+            statement.setString(1,uuid.toString());
+            ResultSet results = statement.executeQuery();
+
+            return results.next();
+        }
+        catch(SQLException e)
+        {
+            e.printStackTrace();
+        }
+
+        return false;
     }
 
     /**
