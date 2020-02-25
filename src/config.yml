@@ -1,0 +1,120 @@
+#  ______ _       _             _____        _____
+# |  ____| |     | |           |  __ \      |  __ \
+# | |__  | |_   _| |_ _ __ __ _| |__) |_   _| |__) |
+# |  __| | | | | | __| '__/ _` |  ___/\ \ / /  ___/
+# | |____| | |_| | |_| | | (_| | |     \ V /| |
+# |______|_|\__, |\__|_|  \__,_|_|      \_/ |_|
+#            __/ |
+#           |___/
+# Version 1.0
+
+
+# This is used when an update modifies the config. If checks this value and
+# warns you when the config file does not match the version needed. This number
+# may be changed when the correct additions to the config are made.
+configVersion: 1
+
+
+# -----------------------------------------
+#               MySQL
+# -----------------------------------------
+MySQL:
+  host: "localhost"
+  port: 3306
+  database: "database"
+  username: "username"
+  password: "password"
+  useSSL: true
+
+
+# -----------------------------------------
+#                 Theme
+# -----------------------------------------
+
+# Theme modifies the colors for all text
+# used by the plugin that cannot be modified
+# under Messages.
+Theme:
+
+  # Default: "&8"
+  color1: "&8"
+
+  # Default: "&2"
+  color2: "&2"
+
+  # Default: "&a"
+  color3: "&a"
+
+  # Default: "&f"
+  color4: "&f"
+
+
+# -----------------------------------------
+#               Spawn
+# -----------------------------------------
+
+# The location /ep spawn takes you to.
+Spawn:
+  X: 0.0
+  Y: 0.0
+  Z: 0.0
+  Yaw: 0.0
+  Pitch: 0.0
+  Set: false
+
+
+# -----------------------------------------
+#               Settings
+# -----------------------------------------
+
+# Set to false when building.
+Enabled: false
+
+
+#The level in which the arena begins
+StartLevel: 0
+
+#When set to true, players don't lose hunger.
+Disable-Hunger: true
+
+#When set to true, players can drop items
+AllowItemDrop: false
+
+# These are the blocks that players die when they touch.
+# Uses spigot material ids: https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html
+DeathBlocks:
+- GRASS
+- LEAVES
+- LIME_TERRACOTTA
+- GREEN_TERRACOTTA
+- JUNGLE_LEAVES
+- BlUE_TERRACOTTA
+- SAND
+
+#Kills the player when they touch water
+DieOnWater: true
+
+DeathMessages:
+  Water: "&2&lDeath &8- &f%player% &adrowned."
+  Block: "&2&lDeath &8- &f%player% &adied."
+  Player: "&2&lDeath &8- &f%player% &awas rekt by &f%killer%&a."
+
+# The amount of coins a player gets per kill
+CoinsPerKill: 5
+
+
+# -----------------------------------------
+#               Messages
+# -----------------------------------------
+
+# These are the messages seen throughout the plugin
+Messages:
+  Prefix: "&c&lElytraPvP &8- "
+  NoPermission: "&cYou do not have access to that command!"
+  PluginEnabled: "&aPlugin has been enabled!"
+  CouldNotEnable: "&cCould not enable plugin! Check to make sure everything is set first."
+  PluginDisabled: "&cPlugin has been disabled!"
+  SpawnSet: "&aSpawn has been set!"
+  StartLevelSet: "&aStart Level has been set!"
+  Killstreak: "&c&lKillstreak &8- &c%player% &fis on a killstreak of &c%killstreak%&f!"
+  KitSelection: "&c&lKit &8- &fYou have selected Kit %kit%"
