@@ -7,6 +7,8 @@ import org.bukkit.entity.Player;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Arrays;
+import java.util.List;
 import java.util.UUID;
 
 public class ElytraPlayer
@@ -260,6 +262,31 @@ public class ElytraPlayer
     }
 
     /**
+     * Get a String array from unlocked kits.
+     * @return Unlocked kits.
+     */
+    public List<String> getUnlockedKits()
+    {
+        String unlockedKits = "";
+
+        try
+        {
+            PreparedStatement statement = MySQL.getConnection().prepareStatement("SELECT * from ep_users WHERE uuid = ?");
+            statement.setString(1, uuid.toString());
+            ResultSet results = statement.executeQuery();
+            results.next();
+
+            unlockedKits += results.getString(9);
+        }
+        catch(SQLException e)
+        {
+            e.printStackTrace();
+        }
+
+        return Arrays.asList(unlockedKits.split(","));
+    }
+
+    /**
      * Check if player has joined before.
      * @return Whether they have joined before.
      */
@@ -279,6 +306,15 @@ public class ElytraPlayer
         }
 
         return false;
+    }
+
+    /**
+     * Remove coins from a player.
+     * @param coins Coins to be removed.
+     */
+    public void removeCoins(int coins)
+    {
+        setCoins(getCoins() - coins);
     }
 
     /**
@@ -405,11 +441,46 @@ public class ElytraPlayer
     }
 
     /**
-     * Remove coins from a player.
-     * @param coins Coins to be removed.
+     * Unlock a kit
+     * @param kit Kit to unlock.
      */
-    public void removeCoins(int coins)
+    public void unlockKit(int kit)
     {
-        setCoins(getCoins() - coins);
+        String unlockedKits = "";
+
+        try
+        {
+            PreparedStatement statement = MySQL.getConnection().prepareStatement("SELECT * from ep_users WHERE uuid = ?");
+            statement.setString(1, uuid.toString());
+            ResultSet results = statement.executeQuery();
+            results.next();
+
+            unlockedKits += results.getString(9);
+        }
+        catch(SQLException e)
+        {
+            e.printStackTrace();
+        }
+
+        if(unlockedKits.length() != 0)
+        {
+            unlockedKits += "," + kit;
+        }
+        else
+        {
+            unlockedKits += kit;
+        }
+
+        try
+        {
+            PreparedStatement statement = MySQL.getConnection().prepareStatement("UPDATE ep_users SET unlockedKits=? WHERE uuid = ?");
+            statement.setString(1, unlockedKits);
+            statement.setString(2, uuid.toString());
+            statement.executeUpdate();
+        }
+        catch(SQLException e)
+        {
+            e.printStackTrace();
+        }
     }
 }

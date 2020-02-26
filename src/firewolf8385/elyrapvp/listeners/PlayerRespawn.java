@@ -26,8 +26,8 @@ public class PlayerRespawn implements Listener
         e.setRespawnLocation(settings.getSpawn());
 
         // Fix player's health
-        p.setHealth(20);
         p.setMaxHealth(20);
+        p.setHealth(20);
 
         // Reset player's inventory.
         p.getInventory().clear();

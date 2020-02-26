@@ -6,6 +6,8 @@ import firewolf8385.elytrapvp.events.PlayerDrownEvent;
 import firewolf8385.elytrapvp.events.PlayerEscapeEvent;
 import firewolf8385.elytrapvp.events.PlayerTouchGroundEvent;
 import firewolf8385.elytrapvp.objects.ElytraPlayer;
+import firewolf8385.elytrapvp.objects.Kit;
+import firewolf8385.elytrapvp.utils.ChatUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -35,6 +37,21 @@ public class PlayerMove implements Listener
         if(ep.getStatus() == Status.OTHER)
         {
             return;
+        }
+
+        // Exit if not kit selected.
+        if (ep.getKit() == 0 && p.getLocation().getY() <= settings.getStartLevel()) {
+            p.teleport(settings.getSpawn());
+            ChatUtils.chat(p, "&2&lError &8- &cYou have not selected a kit.");
+            return;
+        }
+
+        // Give a player their kit.
+        if(ep.getKit() != 0 && p.getLocation().getY() <= settings.getStartLevel())
+        {
+            Kit k = Kit.list.get(ep.getKit());
+
+            k.giveItems(p);
         }
 
         // Change player's status to arena
@@ -69,7 +86,7 @@ public class PlayerMove implements Listener
             }
 
             // Calls PlayerTouchGroundEvent if player touches the ground.
-            if (settings.getDeathBlocks().contains(block.getType().toString()))
+            else if (settings.getDeathBlocks().contains(block.getType().toString()))
             {
                 Bukkit.getPluginManager().callEvent(new PlayerTouchGroundEvent(p));
             }
