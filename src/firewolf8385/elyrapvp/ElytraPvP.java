@@ -97,6 +97,14 @@ public class ElytraPvP extends JavaPlugin
         new Pyro();
         new Tank();
         new Chemist();
+        new Stickman();
+        new Bomber();
+        new Healer();
+        new Teleporter();
+        new Spectral();
+        new Puncher();
+        new Cactus();
+        new Poseidon();
     }
 
 }
