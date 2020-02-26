@@ -11,6 +11,10 @@ import org.bukkit.inventory.ItemStack;
 
 public class Sniper extends Kit
 {
+    private ItemStack arrow;
+    private ItemStack bow;
+    private ItemStack elytra;
+    private ItemStack fireworks;
 
     /**
      * Create a new Sniper Kit.
@@ -18,6 +22,17 @@ public class Sniper extends Kit
     public Sniper()
     {
         super("Sniper", 1, 11, 0);
+
+        // Items
+        arrow = new ItemStack(Material.ARROW);
+        bow = ItemUtils.createItem(Material.BOW, "&aSniper Bow");
+        bow = ItemUtils.addEnchantment(bow, Enchantment.ARROW_DAMAGE, 5, true);
+        bow = ItemUtils.addEnchantment(bow, Enchantment.ARROW_INFINITE, 1, true);
+        bow = ItemUtils.setUnbreakable(bow, true);
+        elytra = ItemUtils.createItem(Material.ELYTRA, "&aElytra");
+        elytra = ItemUtils.setUnbreakable(elytra, true);
+        fireworks = new ItemStack(Material.FIREWORK_ROCKET, 64);
+
         super.setPreviewKit(preview());
     }
 
@@ -37,16 +52,6 @@ public class Sniper extends Kit
      */
     public void giveItems(Player p)
     {
-        ItemStack bow = ItemUtils.createItem(Material.BOW, "&aSniper Bow");
-        bow = ItemUtils.addEnchantment(bow, Enchantment.ARROW_DAMAGE, 5, true);
-        bow = ItemUtils.addEnchantment(bow, Enchantment.ARROW_INFINITE, 1, true);
-        bow = ItemUtils.setUnbreakable(bow, true);
-
-        ItemStack fireworks = new ItemStack(Material.FIREWORK_ROCKET, 64);
-        ItemStack arrow = new ItemStack(Material.ARROW);
-
-        ItemStack elytra = ItemUtils.createItem(Material.ELYTRA, "&aElytra");
-        elytra = ItemUtils.setUnbreakable(elytra, true);
 
         if(!p.getInventory().contains(bow))
         {
@@ -68,31 +73,16 @@ public class Sniper extends Kit
     {
         Inventory preview = Bukkit.createInventory(null, 54, "Preview");
 
-        ItemStack bow = ItemUtils.createItem(Material.BOW, "&aSniper Bow");
-        bow = ItemUtils.addEnchantment(bow, Enchantment.ARROW_DAMAGE, 5, true);
-        bow = ItemUtils.addEnchantment(bow, Enchantment.ARROW_INFINITE, 1, true);
-
-        ItemStack fireworks = new ItemStack(Material.FIREWORK_ROCKET, 64);
-        ItemStack arrow = new ItemStack(Material.ARROW);
-
-        ItemStack elytra = ItemUtils.createItem(Material.ELYTRA, "&aElytra");
-        elytra = ItemUtils.setUnbreakable(elytra, true);
-
-        ItemStack leave = ItemUtils.createItem(Material.BARRIER, "&cBack");
-        ItemStack filler = new ItemStack(Material.GRAY_STAINED_GLASS_PANE);
-
-        int[] fillers = new int[]{0, 1, 2,3,4,5,6,7,8,9,11,13,14,15,17,18,20,21,22,23,24,25,26,27,29,35,36,37,38,39,40,41,42,43,44,45,46,47,48,50,51,52,53};
-
-        for(int i : fillers)
+        for(int i : getFillers())
         {
-            preview.setItem(i, filler);
+            preview.setItem(i, getFiller());
         }
 
         preview.setItem(10, elytra);
         preview.setItem(12, fireworks);
         preview.setItem(16, arrow);
         preview.setItem(30, bow);
-        preview.setItem(49, leave);
+        preview.setItem(49, getLeave());
 
         return preview;
     }

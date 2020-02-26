@@ -16,6 +16,12 @@ import org.bukkit.potion.PotionEffectType;
 
 public class Chemist extends Kit
 {
+    private ItemStack arrow;
+    private ItemStack bow;
+    private ItemStack elytra;
+    private ItemStack fireworks;
+    private ItemStack potion;
+
 
     /**
      * Create a new Sniper Kit.
@@ -23,6 +29,22 @@ public class Chemist extends Kit
     public Chemist()
     {
         super("Chemist", 5, 15, 400);
+
+        // Items
+        arrow = new ItemStack(Material.ARROW);
+        bow = ItemUtils.createItem(Material.BOW, "&aChemist Bow");
+        bow = ItemUtils.addEnchantment(bow, Enchantment.ARROW_DAMAGE, 3, true);
+        bow = ItemUtils.addEnchantment(bow, Enchantment.ARROW_INFINITE, 1, true);
+        bow = ItemUtils.setUnbreakable(bow, true);
+        elytra = ItemUtils.createItem(Material.ELYTRA, "&aElytra");
+        elytra = ItemUtils.setUnbreakable(elytra, true);
+        fireworks = new ItemStack(Material.FIREWORK_ROCKET, 64);
+        potion = new ItemStack(Material.SPLASH_POTION, 111);
+        PotionMeta potionMeta = (PotionMeta) potion.getItemMeta();
+        potionMeta.setDisplayName(StringUtils.translate("&aChemist Potions"));
+        potionMeta.addCustomEffect(new PotionEffect(PotionEffectType.HARM, 1, 0), true);
+        potion.setItemMeta(potionMeta);
+
         super.setPreviewKit(preview());
     }
 
@@ -35,9 +57,9 @@ public class Chemist extends Kit
     {
         ElytraPlayer ep = new ElytraPlayer(p);
 
-        if(!ep.getUnlockedKits().contains(5 + ""))
+        if(!ep.getUnlockedKits().contains(getNumber() + ""))
         {
-            return ItemUtils.createItem(Material.GRAY_DYE, "&cChemist", "&7Force your opponents into submission", "&7with a splash potion.", "", "&7Left Click to Select", "&7Right Click to Preview");
+            return ItemUtils.createItem(Material.GRAY_DYE, "&cChemist", "&7Force your opponents into submission", "&7with a splash potion.", "", "&7Left Click to Purchase", "&7Right Click to Preview", "", "&6Price: " + getPrice());
         }
 
         return ItemUtils.createItem(Material.POTION, "&aChemist", "&7Force your opponents into submission", "&7with a splash potion.", "", "&7Left Click to Select", "&7Right Click to Preview");
@@ -49,22 +71,6 @@ public class Chemist extends Kit
      */
     public void giveItems(Player p)
     {
-        ItemStack bow = ItemUtils.createItem(Material.BOW, "&aChemist Bow");
-        bow = ItemUtils.addEnchantment(bow, Enchantment.ARROW_DAMAGE, 3, true);
-        bow = ItemUtils.addEnchantment(bow, Enchantment.ARROW_INFINITE, 1, true);
-        bow = ItemUtils.setUnbreakable(bow, true);
-
-        ItemStack fireworks = new ItemStack(Material.FIREWORK_ROCKET, 64);
-        ItemStack arrow = new ItemStack(Material.ARROW);
-
-        ItemStack elytra = ItemUtils.createItem(Material.ELYTRA, "&aElytra");
-        elytra = ItemUtils.setUnbreakable(elytra, true);
-
-        ItemStack potion = new ItemStack(Material.SPLASH_POTION, 111);
-        PotionMeta potionMeta = (PotionMeta) potion.getItemMeta();
-        potionMeta.setDisplayName(StringUtils.translate("&aChemist Potions"));
-        potionMeta.addCustomEffect(new PotionEffect(PotionEffectType.HARM, 1, 0), true);
-        potion.setItemMeta(potionMeta);
 
         if(!p.getInventory().contains(bow))
         {
@@ -85,31 +91,9 @@ public class Chemist extends Kit
     {
         Inventory preview = Bukkit.createInventory(null, 54, "Preview");
 
-        ItemStack bow = ItemUtils.createItem(Material.BOW, "&aChemist Bow");
-        bow = ItemUtils.addEnchantment(bow, Enchantment.ARROW_DAMAGE, 3, true);
-        bow = ItemUtils.addEnchantment(bow, Enchantment.ARROW_INFINITE, 1, true);
-        bow = ItemUtils.setUnbreakable(bow, true);
-
-        ItemStack fireworks = new ItemStack(Material.FIREWORK_ROCKET, 64);
-        ItemStack arrow = new ItemStack(Material.ARROW);
-
-        ItemStack elytra = ItemUtils.createItem(Material.ELYTRA, "&aElytra");
-        elytra = ItemUtils.setUnbreakable(elytra, true);
-
-        ItemStack potion = new ItemStack(Material.SPLASH_POTION, 111);
-        PotionMeta potionMeta = (PotionMeta) potion.getItemMeta();
-        potionMeta.setDisplayName(StringUtils.translate("&aChemist Potions"));
-        potionMeta.addCustomEffect(new PotionEffect(PotionEffectType.HARM, 1, 0), true);
-        potion.setItemMeta(potionMeta);
-
-        ItemStack leave = ItemUtils.createItem(Material.BARRIER, "&cBack");
-        ItemStack filler = new ItemStack(Material.GRAY_STAINED_GLASS_PANE);
-
-        int[] fillers = new int[]{0, 1, 2,3,4,5,6,7,8,9,11,13,14,15,17,18,20,21,22,23,24,25,26,27,29,35,36,37,38,39,40,41,42,43,44,45,46,47,48,50,51,52,53};
-
-        for(int i : fillers)
+        for(int i : getFillers())
         {
-            preview.setItem(i, filler);
+            preview.setItem(i, getFiller());
         }
 
         preview.setItem(10, elytra);
@@ -117,7 +101,7 @@ public class Chemist extends Kit
         preview.setItem(16, arrow);
         preview.setItem(30, bow);
         preview.setItem(31, potion);
-        preview.setItem(49, leave);
+        preview.setItem(49, getLeave());
 
         return preview;
     }
