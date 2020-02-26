@@ -43,6 +43,7 @@ public class Knight extends Kit
         ItemStack bow = ItemUtils.createItem(Material.BOW, "&aKnight Bow");
         bow = ItemUtils.addEnchantment(bow, Enchantment.ARROW_DAMAGE, 3, true);
         bow = ItemUtils.addEnchantment(bow, Enchantment.ARROW_INFINITE, 1, true);
+        bow = ItemUtils.setUnbreakable(bow, true);
 
         ItemStack fireworks = new ItemStack(Material.FIREWORK_ROCKET, 64);
         ItemStack arrow = new ItemStack(Material.ARROW);

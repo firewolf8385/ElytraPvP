@@ -40,6 +40,7 @@ public class Sniper extends Kit
         ItemStack bow = ItemUtils.createItem(Material.BOW, "&aSniper Bow");
         bow = ItemUtils.addEnchantment(bow, Enchantment.ARROW_DAMAGE, 5, true);
         bow = ItemUtils.addEnchantment(bow, Enchantment.ARROW_INFINITE, 1, true);
+        bow = ItemUtils.setUnbreakable(bow, true);
 
         ItemStack fireworks = new ItemStack(Material.FIREWORK_ROCKET, 64);
         ItemStack arrow = new ItemStack(Material.ARROW);
