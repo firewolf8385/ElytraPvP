@@ -9,15 +9,15 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
-public class Sniper extends Kit
+public class Knight extends Kit
 {
 
     /**
      * Create a new Sniper Kit.
      */
-    public Sniper()
+    public Knight()
     {
-        super("Sniper", 1, 11, 0);
+        super("Knight", 2, 12, 0);
         super.setPreviewKit(preview());
     }
 
@@ -28,7 +28,7 @@ public class Sniper extends Kit
      */
     public ItemStack getIcon(Player p)
     {
-        return ItemUtils.createItem(Material.BOW, "&aSniper", "&7A strong bow to snipe", "&7your opponents.", "", "&7Left Click to Select", "&7Right Click to Preview");
+        return ItemUtils.createItem(Material.STONE_SWORD, "&aKnight", "&7Slash your way into battle with", "&7a stone sword.", "", "&7Left Click to Select", "&7Right Click to Preview");
     }
 
     /**
@@ -37,8 +37,11 @@ public class Sniper extends Kit
      */
     public void giveItems(Player p)
     {
-        ItemStack bow = ItemUtils.createItem(Material.BOW, "&aSniper Bow");
-        bow = ItemUtils.addEnchantment(bow, Enchantment.ARROW_DAMAGE, 5, true);
+        ItemStack sword = ItemUtils.createItem(Material.STONE_SWORD, "&aKnight Sword");
+        sword = ItemUtils.setUnbreakable(sword, true);
+
+        ItemStack bow = ItemUtils.createItem(Material.BOW, "&aKnight Bow");
+        bow = ItemUtils.addEnchantment(bow, Enchantment.ARROW_DAMAGE, 3, true);
         bow = ItemUtils.addEnchantment(bow, Enchantment.ARROW_INFINITE, 1, true);
 
         ItemStack fireworks = new ItemStack(Material.FIREWORK_ROCKET, 64);
@@ -50,12 +53,11 @@ public class Sniper extends Kit
         if(!p.getInventory().contains(bow))
         {
             p.getInventory().clear();
-            p.getInventory().setItem(0, bow);
+            p.getInventory().setItem(0, sword);
+            p.getInventory().setItem(1, bow);
             p.getInventory().setItemInOffHand(fireworks);
             p.getInventory().setChestplate(elytra);
             p.getInventory().setItem(17, arrow);
-            p.setMaxHealth(12);
-            p.setHealth(12);
         }
     }
 
@@ -67,8 +69,11 @@ public class Sniper extends Kit
     {
         Inventory preview = Bukkit.createInventory(null, 54, "Preview");
 
-        ItemStack bow = ItemUtils.createItem(Material.BOW, "&aSniper Bow");
-        bow = ItemUtils.addEnchantment(bow, Enchantment.ARROW_DAMAGE, 5, true);
+        ItemStack sword = ItemUtils.createItem(Material.STONE_SWORD, "&aKnight Sword");
+        sword = ItemUtils.setUnbreakable(sword, true);
+
+        ItemStack bow = ItemUtils.createItem(Material.BOW, "&aKnight Bow");
+        bow = ItemUtils.addEnchantment(bow, Enchantment.ARROW_DAMAGE, 3, true);
         bow = ItemUtils.addEnchantment(bow, Enchantment.ARROW_INFINITE, 1, true);
 
         ItemStack fireworks = new ItemStack(Material.FIREWORK_ROCKET, 64);
@@ -90,7 +95,8 @@ public class Sniper extends Kit
         preview.setItem(10, elytra);
         preview.setItem(12, fireworks);
         preview.setItem(16, arrow);
-        preview.setItem(30, bow);
+        preview.setItem(30, sword);
+        preview.setItem(31, bow);
         preview.setItem(49, leave);
 
         return preview;

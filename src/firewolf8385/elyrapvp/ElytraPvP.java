@@ -3,6 +3,7 @@ package firewolf8385.elytrapvp;
 import firewolf8385.elytrapvp.commands.EP;
 import firewolf8385.elytrapvp.commands.Kits;
 import firewolf8385.elytrapvp.commands.Stats;
+import firewolf8385.elytrapvp.kits.Knight;
 import firewolf8385.elytrapvp.kits.Sniper;
 import firewolf8385.elytrapvp.listeners.*;
 import org.bukkit.plugin.Plugin;
@@ -93,6 +94,7 @@ public class ElytraPvP extends JavaPlugin
     private void registerKits()
     {
         new Sniper();
+        new Knight();
     }
 
 }
