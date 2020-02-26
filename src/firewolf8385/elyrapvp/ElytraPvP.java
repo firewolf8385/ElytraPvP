@@ -88,6 +88,7 @@ public class ElytraPvP extends JavaPlugin
         getServer().getPluginManager().registerEvents(new EntityDamage(), this);
         getServer().getPluginManager().registerEvents(new ProjectileLaunch(), this);
         getServer().getPluginManager().registerEvents(new PlayerDeath(), this);
+        getServer().getPluginManager().registerEvents(new PlayerKillPlayer(), this);
     }
 
     /**
