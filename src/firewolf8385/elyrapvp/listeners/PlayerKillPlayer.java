@@ -30,6 +30,8 @@ public class PlayerKillPlayer implements Listener
         kp.addKills(1);
         kp.addKillStreak(1);
 
+        Bukkit.broadcastMessage(StringUtils.translate("&2&lDeath &8- &f" + p.getName() + " &awas rekt by " + k.getName() + "&a."));
+
         int coins = 5 + (kp.getKillStreak() / 3) + ep.getBounty();
         kp.addCoins(coins);
 
