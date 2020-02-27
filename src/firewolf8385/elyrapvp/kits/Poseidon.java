@@ -36,6 +36,7 @@ public class Poseidon extends Kit
         elytra = ItemUtils.setUnbreakable(elytra, true);
         fireworks = new ItemStack(Material.FIREWORK_ROCKET, 64);
         trident = ItemUtils.createItem(Material.TRIDENT, "&aPoseidon's Trident");
+        trident = ItemUtils.setUnbreakable(trident, true);
 
         super.setPreviewKit(preview());
     }
