@@ -5,6 +5,7 @@ import firewolf8385.elytrapvp.commands.Kits;
 import firewolf8385.elytrapvp.commands.Stats;
 import firewolf8385.elytrapvp.kits.*;
 import firewolf8385.elytrapvp.listeners.*;
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -39,6 +40,12 @@ public class ElytraPvP extends JavaPlugin
 
         // Create config if it doesn't exist.
         settings.setup(this);
+
+        // If PlaceholderAPI is installed, enables placeholders
+        if(Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null)
+        {
+            new Placeholders(this).register();
+        }
 
         // Connect to mysql database.
         MySQL.openConnection();
