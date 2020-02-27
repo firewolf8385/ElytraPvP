@@ -2,8 +2,11 @@ package firewolf8385.elytrapvp.listeners;
 
 import firewolf8385.elytrapvp.Settings;
 import firewolf8385.elytrapvp.inventories.KitsGUI;
+import firewolf8385.elytrapvp.kits.Spectator;
+import firewolf8385.elytrapvp.objects.ElytraPlayer;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEvent;
@@ -16,6 +19,9 @@ public class PlayerInteract implements Listener
     @EventHandler
     public void onInteract(PlayerInteractEvent e)
     {
+        Player p = e.getPlayer();
+        ElytraPlayer ep = new ElytraPlayer(p);
+
         // Exit if not enabled.
         if(!settings.isEnabled())
         {
@@ -51,6 +57,9 @@ public class PlayerInteract implements Listener
 
             case "Stats":
                 e.getPlayer().performCommand("stats");
+                break;
+            case "Leave":
+                Spectator.remove(p);
                 break;
         }
     }

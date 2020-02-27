@@ -1,15 +1,20 @@
 package firewolf8385.elytrapvp.listeners;
 
+import firewolf8385.elytrapvp.ElytraPvP;
 import firewolf8385.elytrapvp.Settings;
 import firewolf8385.elytrapvp.enums.Status;
+import firewolf8385.elytrapvp.kits.Spectator;
 import firewolf8385.elytrapvp.objects.ElytraPlayer;
 import firewolf8385.elytrapvp.utils.ItemUtils;
+import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
+
+import java.util.UUID;
 
 public class PlayerJoin implements Listener
 {
@@ -34,6 +39,12 @@ public class PlayerJoin implements Listener
         if(!settings.isEnabled())
         {
             return;
+        }
+
+        // Hide players in spectator mode.
+        for(UUID u : Spectator.spectators)
+        {
+            p.hidePlayer(ElytraPvP.getPlugin(), Bukkit.getPlayer(u));
         }
 
         // Teleport player to spawn if spawn is set.

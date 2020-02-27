@@ -1,13 +1,16 @@
 package firewolf8385.elytrapvp.listeners;
 
+import firewolf8385.elytrapvp.ElytraPvP;
 import firewolf8385.elytrapvp.Settings;
 import firewolf8385.elytrapvp.enums.Status;
 import firewolf8385.elytrapvp.events.PlayerDrownEvent;
 import firewolf8385.elytrapvp.events.PlayerEscapeEvent;
 import firewolf8385.elytrapvp.events.PlayerTouchGroundEvent;
+import firewolf8385.elytrapvp.kits.Spectator;
 import firewolf8385.elytrapvp.objects.ElytraPlayer;
 import firewolf8385.elytrapvp.objects.Kit;
 import firewolf8385.elytrapvp.utils.ChatUtils;
+import firewolf8385.elytrapvp.utils.ItemUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -34,7 +37,7 @@ public class PlayerMove implements Listener
         }
 
         // Exit if not in lobby or in game.
-        if(ep.getStatus() == Status.OTHER)
+        if(ep.getStatus() == Status.OTHER || ep.getStatus() ==  Status.SPECTATOR)
         {
             return;
         }
@@ -46,18 +49,19 @@ public class PlayerMove implements Listener
             return;
         }
 
-        // Give a player their kit.
-        if(ep.getKit() != 0 && p.getLocation().getY() <= settings.getStartLevel())
-        {
-            Kit k = Kit.list.get(ep.getKit());
-
-            k.giveItems(p);
-        }
-
         // Change player's status to arena
         if(p.getLocation().getY() < settings.getStartLevel() && ep.getStatus() == Status.LOBBY)
         {
+            if(ep.getKit() == -1)
+            {
+                Spectator.add(p);
+                return;
+            }
             ep.setStatus(Status.ARENA);
+
+            Kit k = Kit.list.get(ep.getKit());
+
+            k.giveItems(p);
         }
 
         // Exit if in Lobby
