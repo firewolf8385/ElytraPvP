@@ -23,7 +23,7 @@ public class Cactus extends Kit
      */
     public Cactus()
     {
-        super("Cactus", 13, 31, 400);
+        super("Cactus", 13, 32, 400);
 
         // Items
         arrow = new ItemStack(Material.ARROW);

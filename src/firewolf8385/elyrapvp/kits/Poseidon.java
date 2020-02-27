@@ -24,7 +24,7 @@ public class Poseidon extends Kit
      */
     public Poseidon()
     {
-        super("Poseidon", 12, 30, 400);
+        super("Poseidon", 12, 31, 400);
 
         // Items
         arrow = new ItemStack(Material.ARROW);

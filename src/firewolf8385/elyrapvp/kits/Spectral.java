@@ -23,7 +23,7 @@ public class Spectral extends Kit
      */
     public Spectral()
     {
-        super("Spectrak", 10, 24, 400);
+        super("Spectral", 10, 24, 400);
 
         // Items
         arrow = new ItemStack(Material.SPECTRAL_ARROW);

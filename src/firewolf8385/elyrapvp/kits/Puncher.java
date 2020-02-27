@@ -23,7 +23,7 @@ public class Puncher extends Kit
      */
     public Puncher()
     {
-        super("Puncher", 11, 29, 400);
+        super("Puncher", 11, 30, 400);
 
         // Items
         arrow = new ItemStack(Material.ARROW);
