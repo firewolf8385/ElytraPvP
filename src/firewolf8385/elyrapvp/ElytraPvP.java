@@ -2,6 +2,7 @@ package firewolf8385.elytrapvp;
 
 import firewolf8385.elytrapvp.commands.EP;
 import firewolf8385.elytrapvp.commands.Kits;
+import firewolf8385.elytrapvp.commands.Pay;
 import firewolf8385.elytrapvp.commands.Stats;
 import firewolf8385.elytrapvp.kits.*;
 import firewolf8385.elytrapvp.listeners.*;
@@ -74,6 +75,7 @@ public class ElytraPvP extends JavaPlugin
         getCommand("elytrapvp").setExecutor(new EP());
         getCommand("kits").setExecutor(new Kits());
         getCommand("stats").setExecutor(new Stats());
+        getCommand("pay").setExecutor(new Pay());
     }
 
     /**
