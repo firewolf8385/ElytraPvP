@@ -12,6 +12,7 @@ import java.util.Arrays;
 public class EP implements CommandExecutor
 {
     private Settings settings = Settings.getInstance();
+    private Admin admin;
     private Disable disable;
     private Enable enable;
     private Help help;
@@ -22,6 +23,7 @@ public class EP implements CommandExecutor
 
     public EP()
     {
+        this.admin = new Admin();
         this.disable = new Disable();
         this.enable = new Enable();
         this.help = new Help();
@@ -50,6 +52,9 @@ public class EP implements CommandExecutor
 
         switch(args[0])
         {
+            case "admin":
+                admin.onCommand(sender, cmd, label, Arrays.copyOfRange(args, 1, args.length));
+                break;
             case "disable":
                 disable.onCommand(sender, cmd, label, Arrays.copyOfRange(args, 0, args.length));
                 break;
