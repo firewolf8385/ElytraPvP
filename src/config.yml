@@ -109,12 +109,14 @@ CoinsPerKill: 5
 
 # These are the messages seen throughout the plugin
 Messages:
-  MustBePlayer: "&2&lError &8- &cYou must be a player to use that command."
-  NoPermission: "&cYou do not have access to that command!"
-  PluginEnabled: "&aPlugin has been enabled!"
-  CouldNotEnable: "&cCould not enable plugin! Check to make sure everything is set first."
-  PluginDisabled: "&cPlugin has been disabled!"
-  SpawnSet: "&aSpawn has been set!"
-  StartLevelSet: "&aStart Level has been set!"
-  Killstreak: "&c&lKillstreak &8- &c%player% &fis on a killstreak of &c%killstreak%&f!"
-  KitSelection: "&c&lKit &8- &fYou have selected Kit %kit%"
+  NoPermission: "&2&lError &8- &cYou do not have access to that command."
+  MustBePlayer: "&2&lError &8- You must be a player to access that command.."
+  PluginAlreadyDisabled: "&2&lError &8- &cPlugin already disabled."
+  PluginDisabled: "&2&lElytraPvP &8- &aPlugin disabled."
+  PluginAlreadyEnabled: "&2&lError &8- &cPlugin already disabled."
+  PluginEnabled: "&2&lElytraPvP &8- &aPlugin enabled."
+  SpawnNotSet: "&2&lError &8- &cSpawn has not been set."
+  StartLevelNotSet: "&2&lError &8- &cStart Level not set."
+  SpawnSet: "&2&lElytraPvP &8- &aSpawn set."
+  SetStartLevelUsage: "&2&lUsage &8- &c/ep setstartlevel [y]"
+  StartLevelSet: "&2&lElytraPvP &8- &aStart Level has been set."
