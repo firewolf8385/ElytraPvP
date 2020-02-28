@@ -54,7 +54,7 @@ public class Cactus extends Kit
             return ItemUtils.createItem(Material.GRAY_DYE, "&cCactus", "&7Damage your opponents", "&7every time they hit you.", "", "&7Left Click to Purchase", "&7Right Click to Preview", "", "&6Price: " + getPrice());
         }
 
-        return ItemUtils.createItem(Material.POTION, "&aCactus", "&7Damage your opponents", "&7every time they hit you.", "", "&7Left Click to Select", "&7Right Click to Preview");
+        return ItemUtils.createItem(Material.CACTUS, "&aCactus", "&7Damage your opponents", "&7every time they hit you.", "", "&7Left Click to Select", "&7Right Click to Preview");
     }
 
     /**

@@ -54,7 +54,7 @@ public class Healer extends Kit
             return ItemUtils.createItem(Material.GRAY_DYE, "&cHealer", "&7Regenerate health faster to", "&7outlive your opponents.", "", "&7Left Click to Purchase", "&7Right Click to Preview", "", "&6Price: " + getPrice());
         }
 
-        return ItemUtils.createItem(Material.POTION, "&aHealer", "&7Regenerate health faster to", "&7outlive your opponents.", "", "&7Left Click to Select", "&7Right Click to Preview");
+        return ItemUtils.createItem(Material.GOLDEN_APPLE, "&aHealer", "&7Regenerate health faster to", "&7outlive your opponents.", "", "&7Left Click to Select", "&7Right Click to Preview");
     }
 
     /**

@@ -55,7 +55,7 @@ public class Poseidon extends Kit
             return ItemUtils.createItem(Material.GRAY_DYE, "&cPoseidon", "&7Obliterate your enemies", "&7with a trident.", "", "&7Left Click to Purchase", "&7Right Click to Preview", "", "&6Price: " + getPrice());
         }
 
-        return ItemUtils.createItem(Material.POTION, "&aPoseidon", "&7Obliterate your enemies", "&7with a trident.", "", "&7Left Click to Select", "&7Right Click to Preview");
+        return ItemUtils.createItem(Material.TRIDENT, "&aPoseidon", "&7Obliterate your enemies", "&7with a trident.", "", "&7Left Click to Select", "&7Right Click to Preview");
     }
 
     /**

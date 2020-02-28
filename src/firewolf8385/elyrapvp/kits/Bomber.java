@@ -59,7 +59,7 @@ public class Bomber extends Kit
             return ItemUtils.createItem(Material.GRAY_DYE, "&cBomber", "&7Blow the competition away", "&7with explosive fireworks.", "", "&7Left Click to Purchase", "&7Right Click to Preview", "", "&6Price: " + getPrice());
         }
 
-        return ItemUtils.createItem(Material.POTION, "&aBomber", "&7Blow the competition away", "&7with explosive fireworks.", "", "&7Left Click to Select", "&7Right Click to Preview");
+        return ItemUtils.createItem(Material.TNT, "&aBomber", "&7Blow the competition away", "&7with explosive fireworks.", "", "&7Left Click to Select", "&7Right Click to Preview");
     }
 
     /**

@@ -52,7 +52,7 @@ public class Spectral extends Kit
             return ItemUtils.createItem(Material.GRAY_DYE, "&cSpectral", "&7Keep track of your enemies", "&7with spectral arrows.", "", "&7Left Click to Purchase", "&7Right Click to Preview", "", "&6Price: " + getPrice());
         }
 
-        return ItemUtils.createItem(Material.STICK, "&aSpectral", "&7Keep track of your enemies", "&7with spectral arrows.", "", "&7Left Click to Select", "&7Right Click to Preview");
+        return ItemUtils.createItem(Material.SPECTRAL_ARROW, "&aSpectral", "&7Keep track of your enemies", "&7with spectral arrows.", "", "&7Left Click to Select", "&7Right Click to Preview");
     }
 
     /**

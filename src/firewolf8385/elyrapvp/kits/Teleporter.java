@@ -56,7 +56,7 @@ public class Teleporter extends Kit
             return ItemUtils.createItem(Material.GRAY_DYE, "&cTeleporter", "&7Confuse your enemies", "&7with enderpearls.", "", "&7Left Click to Purchase", "&7Right Click to Preview", "", "&6Price: " + getPrice());
         }
 
-        return ItemUtils.createItem(Material.STICK, "&aTeleporter", "&7Confuse your enemies", "&7with enderpearls.", "", "&7Left Click to Select", "&7Right Click to Preview");
+        return ItemUtils.createItem(Material.ENDER_PEARL, "&aTeleporter", "&7Confuse your enemies", "&7with enderpearls.", "", "&7Left Click to Select", "&7Right Click to Preview");
     }
 
     /**
