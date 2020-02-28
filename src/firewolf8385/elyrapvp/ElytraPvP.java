@@ -1,9 +1,6 @@
 package firewolf8385.elytrapvp;
 
-import firewolf8385.elytrapvp.commands.EP;
-import firewolf8385.elytrapvp.commands.Kits;
-import firewolf8385.elytrapvp.commands.Pay;
-import firewolf8385.elytrapvp.commands.Stats;
+import firewolf8385.elytrapvp.commands.*;
 import firewolf8385.elytrapvp.kits.*;
 import firewolf8385.elytrapvp.listeners.*;
 import org.bukkit.Bukkit;
@@ -76,6 +73,7 @@ public class ElytraPvP extends JavaPlugin
         getCommand("kits").setExecutor(new Kits());
         getCommand("stats").setExecutor(new Stats());
         getCommand("pay").setExecutor(new Pay());
+        getCommand("bounty").setExecutor(new Bounty());
     }
 
     /**

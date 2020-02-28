@@ -21,3 +21,6 @@ commands:
   pay:
     usage: /<command>
     description: Pay another player coins.
+  bounty:
+    usage: /<command>
+    description: Place a bounty on a player.
