@@ -25,7 +25,7 @@ public class Teleporter extends Kit
      */
     public Teleporter()
     {
-        super("Teleporter", 9, 23, 500);
+        super("Teleporter", 9, 23, 400);
 
         // Items
         arrow = new ItemStack(Material.ARROW);
