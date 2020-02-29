@@ -28,7 +28,7 @@ public class Spectator
 
         for(Player pl : Bukkit.getOnlinePlayers())
         {
-            p.hidePlayer(ElytraPvP.getPlugin(), pl);
+            pl.hidePlayer(ElytraPvP.getPlugin(), p);
         }
 
         spectators.add(p.getUniqueId());
