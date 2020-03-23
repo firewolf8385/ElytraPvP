@@ -48,13 +48,6 @@ public class Spectator
         p.teleport(settings.getSpawn());
         ep.setStatus(Status.LOBBY);
 
-        for(Player pl : Bukkit.getOnlinePlayers())
-        {
-            p.showPlayer(ElytraPvP.getPlugin(), pl);
-        }
-
-        spectators.remove(p.getUniqueId());
-
         p.setFlying(false);
         p.setAllowFlight(false);
         p.removePotionEffect(PotionEffectType.INVISIBILITY);
@@ -64,6 +57,13 @@ public class Spectator
         p.getInventory().setItem(4, ItemUtils.createItem(Material.NETHER_STAR, "&aKit Selector"));
         p.getInventory().setItem(7, ItemUtils.createItem(Material.PAPER, "&aStats"));
         p.getInventory().setItem(8, ItemUtils.createItem(Material.BOOK, "&aAchievements"));
+
+        for(Player pl : Bukkit.getOnlinePlayers())
+        {
+            pl.showPlayer(ElytraPvP.getPlugin(), p);
+        }
+
+        spectators.remove(p.getUniqueId());
     }
 
 }

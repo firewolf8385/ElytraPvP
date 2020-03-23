@@ -10,7 +10,6 @@ import firewolf8385.elytrapvp.kits.Spectator;
 import firewolf8385.elytrapvp.objects.ElytraPlayer;
 import firewolf8385.elytrapvp.objects.Kit;
 import firewolf8385.elytrapvp.utils.ChatUtils;
-import firewolf8385.elytrapvp.utils.ItemUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -37,7 +36,20 @@ public class PlayerMove implements Listener
         }
 
         // Exit if not in lobby or in game.
-        if(ep.getStatus() == Status.OTHER || ep.getStatus() ==  Status.SPECTATOR)
+        if(ep.getStatus() == Status.OTHER)
+        {
+            return;
+        }
+
+        // Check if player tries to escape.
+        if(p.getLocation().getY() > settings.getStartLevel() && ep.getStatus() == Status.SPECTATOR)
+        {
+            Spectator.remove(p);
+            return;
+        }
+
+        // Exit if not in lobby or in game.
+        if(ep.getStatus() == Status.OTHER)
         {
             return;
         }
@@ -87,6 +99,7 @@ public class PlayerMove implements Listener
             if (block.getType() == Material.WATER || block2.getType() == Material.WATER)
             {
                 Bukkit.getPluginManager().callEvent(new PlayerDrownEvent(p));
+                return;
             }
 
             // Calls PlayerTouchGroundEvent if player touches the ground.

@@ -7,6 +7,7 @@ import firewolf8385.elytrapvp.enums.Status;
 import firewolf8385.elytrapvp.kits.Spectator;
 import firewolf8385.elytrapvp.objects.ElytraPlayer;
 import firewolf8385.elytrapvp.utils.ItemUtils;
+import firewolf8385.elytrapvp.utils.StringUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
@@ -38,6 +39,7 @@ public class PlayerJoin implements Listener
         if(!ep.hasJoined())
         {
             ep.createPlayer();
+            Bukkit.broadcastMessage(StringUtils.translate("&2&lWelcome &8- &f" + p.getName() + " &ahas joined for the first time!"));
         }
 
         // Exit if plugin is disabled.
@@ -59,12 +61,13 @@ public class PlayerJoin implements Listener
         }
 
         // Fix player's health
-        p.setHealth(20);
         p.setMaxHealth(20);
+        p.setHealth(20);
 
         // Reset player's inventory.
         p.getInventory().clear();
-        p.getInventory().setItem(1, ItemUtils.createItem(Material.EMERALD, "&aCosmetics"));
+        p.getInventory().setItem(0, ItemUtils.createItem(Material.EMERALD, "&aItem Shop"));
+        p.getInventory().setItem(1, ItemUtils.createItem(Material.CHEST, "&aCosmetics"));
         p.getInventory().setItem(4, ItemUtils.createItem(Material.NETHER_STAR, "&aKit Selector"));
         p.getInventory().setItem(7, ItemUtils.createItem(Material.PAPER, "&aStats"));
         p.getInventory().setItem(8, ItemUtils.createItem(Material.BOOK, "&aAchievements"));

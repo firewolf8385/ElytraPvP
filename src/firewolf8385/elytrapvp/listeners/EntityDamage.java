@@ -1,6 +1,7 @@
 package firewolf8385.elytrapvp.listeners;
 
 import firewolf8385.elytrapvp.Settings;
+import firewolf8385.elytrapvp.enums.Status;
 import firewolf8385.elytrapvp.objects.ElytraPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -28,8 +29,13 @@ public class EntityDamage implements Listener
         }
 
         Player p = (Player) e.getEntity();
-
         ElytraPlayer ep = ElytraPlayer.players.get(p.getUniqueId());
+
+        if(ep.getStatus() == Status.SPECTATOR)
+        {
+            e.setCancelled(true);
+            return;
+        }
 
         switch(ep.getKit())
         {

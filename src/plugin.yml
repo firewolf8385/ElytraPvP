@@ -24,3 +24,6 @@ commands:
   bounty:
     usage: /<command>
     description: Place a bounty on a player.
+  spawn:
+    usage: /<command>
+    description: Teleport to spawn.

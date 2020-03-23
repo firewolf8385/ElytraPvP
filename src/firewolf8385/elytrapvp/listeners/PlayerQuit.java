@@ -18,12 +18,12 @@ public class PlayerQuit implements Listener
         ElytraPlayer ep = ElytraPlayer.players.get(p.getUniqueId());
         ElytraPlayer.players.remove(p.getUniqueId());
 
-        Status.list.remove(e.getPlayer().getUniqueId());
-
         if(ep.getStatus() == Status.SPECTATOR)
         {
             Spectator.remove(p);
         }
+
+        Status.list.remove(e.getPlayer().getUniqueId());
     }
 
 }

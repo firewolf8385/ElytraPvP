@@ -14,6 +14,9 @@ public class MySQL
     private static String password = settings.getConfig().getString("MySQL.password");
     private static int port = settings.getConfig().getInt("MySQL.port");
 
+    /**
+     * Close a connection.
+     */
     public static void closeConnection()
     {
         if(isConnected())

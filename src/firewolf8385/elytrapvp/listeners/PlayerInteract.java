@@ -1,6 +1,7 @@
 package firewolf8385.elytrapvp.listeners;
 
 import firewolf8385.elytrapvp.Settings;
+import firewolf8385.elytrapvp.enums.Status;
 import firewolf8385.elytrapvp.inventories.KitsGUI;
 import firewolf8385.elytrapvp.kits.Spectator;
 import firewolf8385.elytrapvp.objects.ElytraPlayer;
@@ -23,6 +24,14 @@ public class PlayerInteract implements Listener
 
         // Exit if not enabled.
         if(!settings.isEnabled())
+        {
+            return;
+        }
+
+        ElytraPlayer ep = ElytraPlayer.players.get(p.getUniqueId());
+
+        // Exit if in other mode.
+        if(ep.getStatus() == Status.OTHER)
         {
             return;
         }

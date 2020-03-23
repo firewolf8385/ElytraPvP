@@ -36,6 +36,7 @@ public class Cactus extends Kit
         elytra = ItemUtils.setUnbreakable(elytra, true);
         fireworks = new ItemStack(Material.FIREWORK_ROCKET, 64);
         sword = ItemUtils.createItem(Material.WOODEN_SWORD, "&aCactus Sword");
+        sword = ItemUtils.setUnbreakable(sword, true);
 
         super.setPreviewKit(preview());
     }

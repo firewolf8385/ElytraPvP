@@ -30,11 +30,15 @@ public class PlayerDeath implements Listener
         ep.setKillStreak(0);
         e.setDeathMessage(null);
 
+        if(p.getLastDamageCause() == null)
+        {
+            return;
+        }
 
-        EntityDamageEvent cause = p.getLastDamageCause();
+        EntityDamageEvent.DamageCause cause = p.getLastDamageCause().getCause();
 
         // Exit if killed by server.
-        if(cause == null)
+        if(cause == EntityDamageEvent.DamageCause.CUSTOM)
         {
             return;
         }

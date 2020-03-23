@@ -1,6 +1,8 @@
 package firewolf8385.elytrapvp.listeners;
 
 import firewolf8385.elytrapvp.Settings;
+import firewolf8385.elytrapvp.enums.Status;
+import firewolf8385.elytrapvp.objects.ElytraPlayer;
 import firewolf8385.elytrapvp.utils.StringUtils;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
@@ -26,6 +28,14 @@ public class EntityDamageByEntity implements Listener
         // Exit if entity isn't player.
         if(!(e.getEntity() instanceof Player))
         {
+            Player pl = (Player) e.getEntity();
+            ElytraPlayer ep = ElytraPlayer.players.get(pl.getUniqueId());
+
+            if(ep.getStatus() == Status.SPECTATOR)
+            {
+                e.setCancelled(true);
+            }
+
             return;
         }
 
@@ -46,6 +56,6 @@ public class EntityDamageByEntity implements Listener
 
         Player shooter = (Player) a.getShooter();
 
-        shooter.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(StringUtils.translate("&a" + p.getName() + "'s health: &c" + p.getHealth())));
+        shooter.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(StringUtils.translate("&a" + p.getName() + "'s health: &c" + (p.getHealth() - e.getFinalDamage()))));
     }
 }

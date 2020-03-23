@@ -179,14 +179,26 @@ public class ElytraPlayer
             PreparedStatement statement = MySQL.getConnection().prepareStatement("SELECT * from ep_users WHERE uuid = ?");
             statement.setString(1, uuid.toString());
             ResultSet results = statement.executeQuery();
-            results.next();
 
-            coins = results.getInt(2);
-            bounty = results.getInt(3);
-            kills = results.getInt(4);
-            deaths = results.getInt(5);
-            killStreak = results.getInt(6);
-            kit = results.getInt(8);
+            if(results.next())
+            {
+                coins = results.getInt(2);
+                bounty = results.getInt(3);
+                kills = results.getInt(4);
+                deaths = results.getInt(5);
+                killStreak = results.getInt(6);
+                kit = results.getInt(8);
+            }
+            else
+            {
+                coins = 0;
+                bounty = 0;
+                kills = 0;
+                deaths = 0;
+                killStreak = 0;
+                kit = 0;
+            }
+
         }
         catch(SQLException e)
         {

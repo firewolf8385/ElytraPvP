@@ -74,6 +74,9 @@ public class Poseidon extends Kit
             p.getInventory().setItemInOffHand(fireworks);
             p.getInventory().setChestplate(elytra);
             p.getInventory().setItem(17, arrow);
+
+            p.setHealth(16);
+            p.setMaxHealth(16);
         }
     }
 

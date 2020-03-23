@@ -77,6 +77,7 @@ public class ElytraPvP extends JavaPlugin
         getCommand("stats").setExecutor(new Stats());
         getCommand("pay").setExecutor(new Pay());
         getCommand("bounty").setExecutor(new Bounty());
+        getCommand("spawn").setExecutor(new Spawn());
     }
 
     /**

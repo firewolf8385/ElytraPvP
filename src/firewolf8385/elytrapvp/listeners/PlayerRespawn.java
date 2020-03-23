@@ -31,7 +31,8 @@ public class PlayerRespawn implements Listener
 
         // Reset player's inventory.
         p.getInventory().clear();
-        p.getInventory().setItem(1, ItemUtils.createItem(Material.EMERALD, "&aCosmetics"));
+        p.getInventory().setItem(0, ItemUtils.createItem(Material.EMERALD, "&aItem Shop"));
+        p.getInventory().setItem(1, ItemUtils.createItem(Material.CHEST, "&aCosmetics"));
         p.getInventory().setItem(4, ItemUtils.createItem(Material.NETHER_STAR, "&aKit Selector"));
         p.getInventory().setItem(7, ItemUtils.createItem(Material.PAPER, "&aStats"));
         p.getInventory().setItem(8, ItemUtils.createItem(Material.BOOK, "&aAchievements"));

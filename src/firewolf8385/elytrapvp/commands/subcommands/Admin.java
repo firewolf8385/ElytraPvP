@@ -60,28 +60,64 @@ public class Admin implements CommandExecutor
 
     private void addCoins(CommandSender sender, OfflinePlayer p, int i)
     {
-        ElytraPlayer ep = new ElytraPlayer(p.getUniqueId());
+        ElytraPlayer ep;
+
+        if(ElytraPlayer.players.containsKey(p.getUniqueId()))
+        {
+            ep = ElytraPlayer.players.get(p.getUniqueId());
+        }
+        else
+        {
+            ep = new ElytraPlayer(p.getUniqueId());
+        }
         ep.addCoins(i);
         ChatUtils.chat(sender, "&2&lElytraPvP &8- &aGave &f" + p.getName() + " " + i + " &acoins.");
     }
 
     private void setCoins(CommandSender sender, OfflinePlayer p, int i)
     {
-        ElytraPlayer ep = new ElytraPlayer(p.getUniqueId());
+        ElytraPlayer ep;
+
+        if(ElytraPlayer.players.containsKey(p.getUniqueId()))
+        {
+            ep = ElytraPlayer.players.get(p.getUniqueId());
+        }
+        else
+        {
+            ep = new ElytraPlayer(p.getUniqueId());
+        }
         ep.setCoins(i);
         ChatUtils.chat(sender, "&2&lElytraPvP &8- &aSet &f" + p.getName() + "&a's coins to &f" + i + "&a.");
     }
 
     private void setDeaths(CommandSender sender, OfflinePlayer p, int i)
     {
-        ElytraPlayer ep = new ElytraPlayer(p.getUniqueId());
+        ElytraPlayer ep;
+
+        if(ElytraPlayer.players.containsKey(p.getUniqueId()))
+        {
+            ep = ElytraPlayer.players.get(p.getUniqueId());
+        }
+        else
+        {
+            ep = new ElytraPlayer(p.getUniqueId());
+        }
         ep.setDeaths(i);
         ChatUtils.chat(sender, "&2&lElytraPvP &8- &aSet &f" + p.getName() + "&a's deaths to &f" + i + "&a.");
     }
 
     private void setKills(CommandSender sender, OfflinePlayer p, int i)
     {
-        ElytraPlayer ep = new ElytraPlayer(p.getUniqueId());
+        ElytraPlayer ep;
+
+        if(ElytraPlayer.players.containsKey(p.getUniqueId()))
+        {
+            ep = ElytraPlayer.players.get(p.getUniqueId());
+        }
+        else
+        {
+            ep = new ElytraPlayer(p.getUniqueId());
+        }
         ep.setKills(i);
         ChatUtils.chat(sender, "&2&lElytraPvP &8- &aSet &f" + p.getName() + "&a's kills to &f" + i + "&a.");
     }

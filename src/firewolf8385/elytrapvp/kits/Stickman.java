@@ -36,6 +36,7 @@ public class Stickman extends Kit
         elytra = ItemUtils.setUnbreakable(elytra, true);
         fireworks = new ItemStack(Material.FIREWORK_ROCKET, 64);
         stick = ItemUtils.createItem(Material.STICK, "&aStickman Stick");
+        stick = ItemUtils.addEnchantment(stick, Enchantment.KNOCKBACK, 10, true);
 
         super.setPreviewKit(preview());
     }
